@@ -1,6 +1,5 @@
 #!/bin/sh
 
-
 # Set the screen resolution and wallpaper.
 refreshresolution &
 

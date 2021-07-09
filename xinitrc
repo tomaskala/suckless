@@ -1,6 +1,5 @@
 #!/bin/sh
 
-
 if [ -f ~/.config/xprofile ]; then
   . ~/.config/xprofile
 fi
