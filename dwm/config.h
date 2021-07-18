@@ -125,6 +125,7 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask, XK_r,                    spawn,          {.v = resolutioncmd } },
 	{ MODKEY|ShiftMask, XK_p,                    spawn,          {.v = passmenucmd } },
 	{ MODKEY|ShiftMask, XK_x,                    spawn,          {.v = slockcmd } },
+	{ MODKEY|ShiftMask, XK_s,                    spawn,          SHCMD("sfeed_update \"${SFEEDRC}\"") },
 	{ 0,                XF86XK_AudioRaiseVolume, spawn,          SHCMD("pactl set-sink-volume @DEFAULT_SINK@ +5%; kill -10 $(pidof slstatus)") },
 	{ 0,                XF86XK_AudioLowerVolume, spawn,          SHCMD("pactl set-sink-volume @DEFAULT_SINK@ -5%; kill -10 $(pidof slstatus)") },
 	{ 0,                XF86XK_AudioMute,        spawn,          SHCMD("pactl set-sink-mute @DEFAULT_SINK@ toggle; kill -10 $(pidof slstatus)") },
