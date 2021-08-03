@@ -13,9 +13,9 @@ static const char dmenufont[]       = "mono:pixelsize=16:antialias=true:autohint
 static const char col_norm_bg[]     = "#1d2021";
 static const char col_norm_fg[]     = "#ebdbb2";
 static const char col_norm_bd[]     = "#1d2021";
-static const char col_sel_bg[]      = "#689d6a";
+static const char col_sel_bg[]      = "#427b58";
 static const char col_sel_fg[]      = "#1d2021";
-static const char col_sel_bd[]      = "#689d6a";
+static const char col_sel_bd[]      = "#427b58";
 static const char *colors[][3]      = {
 	/*               fg           bg           border      */
 	[SchemeNorm] = { col_norm_fg, col_norm_bg, col_norm_bd },
