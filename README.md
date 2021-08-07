@@ -3,8 +3,9 @@
 ## Setup
 
 * Install dependencies.
-  * `$ sudo dnf install libX11-devel libXft-devel libXinerama-devel
-      libXrandr-devel`
+  ```
+  $ sudo dnf install libX11-devel libXft-devel libXinerama-devel libXrandr-devel
+  ```
 * Run the `setup.sh` installation script.
 
 
@@ -28,4 +29,14 @@
           Option "DontVTSwitch" "True"
           Option "DontZap"      "True"
   EndSection
+  ```
+
+
+## pinentry-dmenu
+
+* The `config.mk` file requires adding `-I/usr/include/libassuan2` to `INCS` on
+  Fedora.
+* Install dependencies.
+  ```
+  $ sudo dnf install libassuan-devel libconfig-devel gpgme-devel
   ```

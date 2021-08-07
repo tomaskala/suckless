@@ -17,6 +17,7 @@ sudo make -C ./dmenu clean install
 sudo make -C ./slstatus clean install
 sudo make -C ./st clean install
 sudo make -C ./slock clean install
+sudo make -C ./pinentry-dmenu clean install
 
 ln -fs "$(pwd)/xprofile" ~/.config/xprofile
 ln -fs "$(pwd)/xinitrc" ~/.config/xinitrc
