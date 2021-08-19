@@ -9,7 +9,6 @@ static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
 static const int focusonwheel       = 0;
 static const char *fonts[]          = { "mono:pixelsize=16:antialias=true:autohint=true" };
-static const char dmenufont[]       = "mono:pixelsize=16:antialias=true:autohint=true";
 static const char col_norm_bg[]     = "#1d2021";
 static const char col_norm_fg[]     = "#ebdbb2";
 static const char col_norm_bd[]     = "#1d2021";
@@ -70,7 +69,7 @@ static const Layout layouts[] = {
 
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
-static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_norm_bg, "-nf", col_norm_fg, "-sb", col_sel_bg, "-sf", col_sel_fg, NULL };
+static const char *dmenucmd[] = { "drun", "-m", dmenumon, NULL };
 static const char *termcmd[]  = { "st", "-e", "tmux", NULL };
 static const char *scratchpadcmd[] = { "termlaunch", "scratchpad", NULL };
 static const char *calculatorcmd[] = { "termlaunch", "calculator", NULL };
