@@ -8,7 +8,7 @@ static int mon = -1;
 
 static const char *asterisk = "*";
 static const char *fonts[] = {
-	"mono:pixelsize=16:antialias=true:autohint=true"
+	"mono:pixelsize=15:antialias=true:autohint=true"
 };
 static const char *prompt = NULL;
 static const char *colors[SchemeLast][4] = {

@@ -8,7 +8,7 @@ static const unsigned int snap      = 32;       /* snap pixel */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
 static const int focusonwheel       = 0;
-static const char *fonts[]          = { "mono:pixelsize=16:antialias=true:autohint=true" };
+static const char *fonts[]          = { "mono:pixelsize=15:antialias=true:autohint=true" };
 static const char col_norm_bg[]     = "#1d2021";
 static const char col_norm_fg[]     = "#ebdbb2";
 static const char col_norm_bd[]     = "#1d2021";
