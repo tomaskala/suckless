@@ -78,5 +78,5 @@ static const struct arg args[] = {
 	{ separator,     "  ",        NULL },
 	{ run_command,   "vol %6s",   "/bin/sh -c \"amixer get Master | tail -n1 | sed 's/.*\\[\\(.*\\)\\] \\[\\(on\\|off\\)\\].*/\\1 \\2/'\"" },
 	{ separator,     "  ",        NULL },
-	{ datetime,      "%s",        "%F %H:%M" },
+	{ datetime,      "%s",        "%a %F %H:%M" },
 };
