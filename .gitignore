@@ -6,6 +6,19 @@ pinentry-dmenu/pinentry-dmenu
 slock/slock
 slstatus/slstatus
 st/st
+sfeed/sfeed
+sfeed/sfeed_atom
+sfeed/sfeed_frames
+sfeed/sfeed_gopher
+sfeed/sfeed_html
+sfeed/sfeed_mbox
+sfeed/sfeed_opml_export
+sfeed/sfeed_opml_import
+sfeed/sfeed_plain
+sfeed/sfeed_twtxt
+sfeed/sfeed_update
+sfeed/sfeed_web
+sfeed/sfeed_xmlenc
 
 # Prerequisites
 *.d
