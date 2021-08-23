@@ -32,14 +32,9 @@ static const Rule rules[] = {
 	/* class               instance  title    mask    isfloating  monitor */
 	{ "Firefox",           NULL,     NULL,    1 << 0, 0,          -1 },
 	{ "qutebrowser",       NULL,     NULL,    1 << 0, 0,          -1 },
-	{ "Thunderbird",       NULL,     NULL,    1 << 1, 0,          -1 },
 	{ "discord",           NULL,     NULL,    1 << 1, 0,          -1 },
 	{ "TelegramDesktop",   NULL,     NULL,    1 << 1, 0,          -1 },
-	{ "Chromium-browser",  NULL,     NULL,    1 << 3, 0,          -1 },
-	{ "jetbrains-idea",    NULL,     NULL,    1 << 3, 0,          -1 },
-	{ "jetbrains-pycharm", NULL,     NULL,    1 << 3, 0,          -1 },
 	{ "st-256color",       NULL,     "cmus",  1 << 7, 0,          -1 },
-	{ "Virt-manager",      NULL,     NULL,    1 << 8, 0,          -1 },
 	{ "scratchpad",        NULL,     NULL,    0,      1,          -1 },
 	{ "calculator",        NULL,     NULL,    0,      1,          -1 },
 };
