@@ -21,7 +21,7 @@ FREETYPEINC = /usr/include/freetype2
 #FREETYPEINC = ${X11INC}/freetype2
 
 # Includes and libs
-INCS = -I${X11INC} -I${FREETYPEINC} -I/usr/include/libassuan2
+INCS = -I${X11INC} -I${FREETYPEINC}
 LIBS = -L${X11LIB} -lX11 ${XINERAMALIBS} ${FREETYPELIBS}
 
 # Flags

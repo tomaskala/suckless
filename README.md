@@ -34,8 +34,6 @@
 
 ## pinentry-dmenu
 
-* The `config.mk` file requires adding `-I/usr/include/libassuan2` to `INCS` on
-  Fedora.
 * Install dependencies.
   ```
   $ sudo dnf install libassuan-devel libconfig-devel gpgme-devel
