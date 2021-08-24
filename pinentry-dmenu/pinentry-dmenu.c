@@ -785,7 +785,7 @@ main(int argc, char *argv[]) {
 		        config_error_line(&cfg), config_error_text(&cfg));
 		return(EXIT_FAILURE);
 	} else {
-		printf("No config file found. Use defaults.\n");
+		fprintf(stderr, "No config file found. Use defaults.\n");
 	}
 
 	pinentry_init("pinentry-dmenu");
