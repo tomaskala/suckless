@@ -30,7 +30,7 @@ static const Rule rules[] = {
 	 *	WM_NAME(STRING) = title
 	 */
 	/* class               instance  title    mask    isfloating  monitor */
-	{ "Firefox",           NULL,     NULL,    1 << 0, 0,          -1 },
+	{ "firefox",           NULL,     NULL,    1 << 0, 0,          -1 },
 	{ "qutebrowser",       NULL,     NULL,    1 << 0, 0,          -1 },
 	{ "discord",           NULL,     NULL,    1 << 1, 0,          -1 },
 	{ "TelegramDesktop",   NULL,     NULL,    1 << 1, 0,          -1 },
