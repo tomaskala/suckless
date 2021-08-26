@@ -11,6 +11,7 @@
 ```
 $ sudo pacman -S xorg-server xorg-xinit xorg-xprop xorg-util-macros
 ```
+* [backlight_control](https://aur.archlinux.org/packages/backlight_control/)
 
 
 ## st
@@ -28,8 +29,8 @@ $ sudo pacman -S xorg-server xorg-xinit xorg-xprop xorg-util-macros
   screen cannot be bypassed by switching VTs or killing the X server.
   ```
   Section "ServerFlags"
-          Option "DontVTSwitch" "True"
-          Option "DontZap"      "True"
+      Option "DontVTSwitch" "True"
+      Option "DontZap"      "True"
   EndSection
   ```
 
