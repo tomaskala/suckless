@@ -9,7 +9,7 @@
 ## x
 
 ```
-$ sudo pacman -S xorg-server xorg-xinit xorg-xprop xorg-xbacklight xorg-util-macros
+$ sudo pacman -S xorg-server xorg-xinit xorg-xprop xorg-util-macros
 ```
 
 
