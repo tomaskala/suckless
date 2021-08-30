@@ -11,7 +11,7 @@ My build of the suckless tools.
 ## x
 
 ```
-$ sudo pacman -S xorg-server xorg-xinit xorg-xprop xorg-util-macros
+$ sudo pacman -S xorg-server xorg-xinit xorg-xprop xorg-util-macros xcompmgr
 ```
 * [backlight_control](https://aur.archlinux.org/packages/backlight_control/)
 * [libxft-bgra](https://aur.archlinux.org/packages/libxft-bgra/)
