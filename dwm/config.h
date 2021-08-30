@@ -35,8 +35,7 @@ static const Rule rules[] = {
 	{ "discord",           NULL,     NULL,    1 << 1, 0,          -1 },
 	{ "TelegramDesktop",   NULL,     NULL,    1 << 1, 0,          -1 },
 	{ "st-256color",       NULL,     "cmus",  1 << 7, 0,          -1 },
-	{ "scratchpad",        NULL,     NULL,    0,      1,          -1 },
-	{ "calculator",        NULL,     NULL,    0,      1,          -1 },
+	{ "calc",              NULL,     NULL,    0,      1,          -1 },
 };
 
 /* layout(s) */
@@ -66,13 +65,6 @@ static const Layout layouts[] = {
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[] = { "drun", "-m", dmenumon, NULL };
 static const char *termcmd[]  = { "st", "-e", "tmux", NULL };
-static const char *scratchpadcmd[] = { "termlaunch", "scratchpad", NULL };
-static const char *calculatorcmd[] = { "termlaunch", "calculator", NULL };
-static const char *wikicmd[] = { "termlaunch", "wiki", NULL };
-static const char *emailcmd[] = { "termlaunch", "email", NULL };
-static const char *rssfeedcmd[] = { "rssfeed", NULL };
-static const char *resolutioncmd[] = { "refreshresolution", NULL };
-static const char *passmenucmd[] = { "passmenu", NULL };
 static const char *slockcmd[] = { "slock", NULL };
 
 static Key keys[] = {
@@ -110,13 +102,12 @@ static Key keys[] = {
 	TAGKEYS(            XK_8,                                     7)
 	TAGKEYS(            XK_9,                                     8)
 	{ MODKEY|ShiftMask, XK_q,                     quit,           {0} },
-	{ MODKEY,           XK_g,                     spawn,          {.v = scratchpadcmd } },
-	{ MODKEY,           XK_c,                     spawn,          {.v = calculatorcmd } },
-	{ MODKEY,           XK_n,                     spawn,          {.v = wikicmd } },
-	{ MODKEY,           XK_e,                     spawn,          {.v = emailcmd } },
-	{ MODKEY,           XK_s,                     spawn,          {.v = rssfeedcmd } },
-	{ MODKEY|ShiftMask, XK_r,                     spawn,          {.v = resolutioncmd } },
-	{ MODKEY|ShiftMask, XK_p,                     spawn,          {.v = passmenucmd } },
+	{ MODKEY,           XK_c,                     spawn,          SHCMD("st -c calc -e bc -l -q") },
+	{ MODKEY,           XK_n,                     spawn,          SHCMD("st -e nvim -c VimwikiIndex") },
+	{ MODKEY,           XK_e,                     spawn,          SHCMD("st -e neomutt") },
+	{ MODKEY,           XK_s,                     spawn,          SHCMD("rssfeed") },
+	{ MODKEY|ShiftMask, XK_r,                     spawn,          SHCMD("refreshresolution") },
+	{ MODKEY|ShiftMask, XK_p,                     spawn,          SHCMD("passmenu") },
 	{ MODKEY|ShiftMask, XK_x,                     spawn,          {.v = slockcmd } },
 	{ MODKEY|ShiftMask, XK_s,                     spawn,          SHCMD("sfeed_update \"${SFEEDRC}\"") },
 	{ 0,                XF86XK_AudioRaiseVolume,  spawn,          SHCMD("pactl set-sink-volume @DEFAULT_SINK@ +5%; kill -10 $(pidof slstatus)") },
