@@ -277,4 +277,4 @@ extern pinentry_cmd_handler_t pinentry_cmd_handler;
 }
 #endif
 
-#endif	/* PINENTRY_H */
+#endif  /* PINENTRY_H */

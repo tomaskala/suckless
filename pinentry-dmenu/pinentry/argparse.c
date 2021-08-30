@@ -88,7 +88,7 @@
 # define jnlib_strdup(a)    strdup ((a))
 # define jnlib_free(a)      free ((a))
 # define jnlib_log_error    my_log_error
-# define jnlib_log_bug	    my_log_bug
+# define jnlib_log_bug      my_log_bug
 # define trim_spaces(a)     my_trim_spaces ((a))
 # define map_static_macro_string(a)  (a)
 #endif /*!GNUPG_MAJOR_VERSION*/
@@ -156,30 +156,30 @@ my_trim_spaces (char *str)
  *  #include "argparse.h"
  *
  *  typedef struct {
- *	char *argc;		  pointer to argc (value subject to change)
- *	char ***argv;		  pointer to argv (value subject to change)
- *	unsigned flags; 	  Global flags (DO NOT CHANGE)
- *	int err;		  print error about last option
- *				  1 = warning, 2 = abort
- *	int r_opt;		  return option
- *	int r_type;		  type of return value (0 = no argument found)
- *	union {
- *	    int   ret_int;
- *	    long  ret_long
- *	    ulong ret_ulong;
- *	    char *ret_str;
- *	} r;			  Return values
- *	struct {
- *	    int idx;
- *	    const char *last;
- *	    void *aliases;
- *	} internal;		  DO NOT CHANGE
+ *  char *argc;      pointer to argc (value subject to change)
+ *  char ***argv;      pointer to argv (value subject to change)
+ *  unsigned flags;     Global flags (DO NOT CHANGE)
+ *  int err;      print error about last option
+ *          1 = warning, 2 = abort
+ *  int r_opt;      return option
+ *  int r_type;      type of return value (0 = no argument found)
+ *  union {
+ *      int   ret_int;
+ *      long  ret_long
+ *      ulong ret_ulong;
+ *      char *ret_str;
+ *  } r;        Return values
+ *  struct {
+ *      int idx;
+ *      const char *last;
+ *      void *aliases;
+ *  } internal;      DO NOT CHANGE
  *  } ARGPARSE_ARGS;
  *
  *  typedef struct {
- *	int	    short_opt;
- *	const char *long_opt;
- *	unsigned flags;
+ *  int      short_opt;
+ *  const char *long_opt;
+ *  unsigned flags;
  *  } ARGPARSE_OPTS;
  *
  *  int arg_parse( ARGPARSE_ARGS *arg, ARGPARSE_OPTS *opts );
@@ -189,7 +189,7 @@ my_trim_spaces (char *str)
  *  Global flags are:
  *     Bit 0 : Do not remove options form argv
  *     Bit 1 : Do not stop at last option but return other args
- *	       with r_opt set to -1.
+ *         with r_opt set to -1.
  *     Bit 2 : Assume options and real args are mixed.
  *     Bit 3 : Do not use -- to stop option processing.
  *     Bit 4 : Do not skip the first arg.
@@ -199,10 +199,10 @@ my_trim_spaces (char *str)
  *     function, so assume this is write only.
  *  Local flags (for each option):
  *     Bit 2-0 : 0 = does not take an argument
- *		 1 = takes int argument
- *		 2 = takes string argument
- *		 3 = takes long argument
- *		 4 = takes ulong argument
+ *     1 = takes int argument
+ *     2 = takes string argument
+ *     3 = takes long argument
+ *     4 = takes ulong argument
  *     Bit 3 : argument is optional (r_type will the be set to 0)
  *     Bit 4 : allow 0x etc. prefixed values.
  *     Bit 6 : Ignore this option
@@ -236,18 +236,18 @@ my_trim_spaces (char *str)
  *     ARGPARSE_ARGS pargs = { &argc, &argv, 0 }
  *
  *     while( ArgParse( &pargs, &opts) ) {
- *	   switch( pargs.r_opt ) {
- *	     case 'v': opt.verbose++; break;
- *	     case 'd': opt.debug++; break;
- *	     case 'o': opt.outfile = pargs.r.ret_str; break;
- *	     case 'c': opt.crf = pargs.r_type? pargs.r.ret_str:"a.crf"; break;
- *	     case 'm': opt.myopt = pargs.r_type? pargs.r.ret_int : 1; break;
- *	     case 500: opt.a_long_one++;  break
- *	     default : pargs.err = 1; break; -- force warning output --
- *	   }
+ *     switch( pargs.r_opt ) {
+ *       case 'v': opt.verbose++; break;
+ *       case 'd': opt.debug++; break;
+ *       case 'o': opt.outfile = pargs.r.ret_str; break;
+ *       case 'c': opt.crf = pargs.r_type? pargs.r.ret_str:"a.crf"; break;
+ *       case 'm': opt.myopt = pargs.r_type? pargs.r.ret_int : 1; break;
+ *       case 500: opt.a_long_one++;  break
+ *       default : pargs.err = 1; break; -- force warning output --
+ *     }
  *     }
  *     if( argc > 1 )
- *	   log_fatal( "Too many args");
+ *     log_fatal( "Too many args");
  *
  */
 
@@ -373,7 +373,7 @@ initialize( ARGPARSE_ARGS *arg, const char *filename, unsigned *lineno )
           else
             s = _("invalid option");
           jnlib_log_error ("%s:%u: %s\n", filename, *lineno, s);
-	}
+  }
       else
         {
           s = arg->internal.last? arg->internal.last:"[??]";
@@ -395,7 +395,7 @@ initialize( ARGPARSE_ARGS *arg, const char *filename, unsigned *lineno )
             jnlib_log_error ("%s\n", _("out of core\n"));
           else
             jnlib_log_error (_("invalid option \"%.50s\"\n"), s);
-	}
+  }
       if (arg->err != ARGPARSE_PRINT_WARNING)
         exit (2);
       arg->err = 0;
@@ -554,7 +554,7 @@ ignore_invalid_option_clear (ARGPARSE_ARGS *arg)
  */
 int
 optfile_parse (FILE *fp, const char *filename, unsigned *lineno,
-	       ARGPARSE_ARGS *arg, ARGPARSE_OPTS *opts)
+         ARGPARSE_ARGS *arg, ARGPARSE_OPTS *opts)
 {
   int state, i, c;
   int idx=0;
@@ -620,7 +620,7 @@ optfile_parse (FILE *fp, const char *filename, unsigned *lineno,
                 arg->r_opt = ARGPARSE_MISSING_ARG;
 
               break;
-	    }
+      }
           else if (state == 3)
             {
               /* No argument found.  */
@@ -634,7 +634,7 @@ optfile_parse (FILE *fp, const char *filename, unsigned *lineno,
                 arg->r_opt = ARGPARSE_MISSING_ARG;
 
               break;
-	    }
+      }
           else if (state == 4)
             {
               /* Has an argument. */
@@ -652,7 +652,7 @@ optfile_parse (FILE *fp, const char *filename, unsigned *lineno,
                         {
                           *p++ = 0;
                           trim_spaces (p);
-			}
+      }
                       if (!p || !*p)
                         {
                           jnlib_free (buffer);
@@ -662,8 +662,8 @@ optfile_parse (FILE *fp, const char *filename, unsigned *lineno,
                         {
                           store_alias (arg, buffer, p);
                         }
-		    }
-		}
+        }
+    }
               else if (!(opts[idx].flags & ARGPARSE_TYPE_MASK))
                 arg->r_opt = ARGPARSE_UNEXPECTED_ARG;
               else
@@ -676,7 +676,7 @@ optfile_parse (FILE *fp, const char *filename, unsigned *lineno,
                       buffer = jnlib_strdup (keyword);
                       if (!buffer)
                         arg->r_opt = ARGPARSE_OUT_OF_CORE;
-		    }
+        }
                   else
                     buffer[i] = 0;
 
@@ -714,7 +714,7 @@ optfile_parse (FILE *fp, const char *filename, unsigned *lineno,
       else if (state == 0 && isascii (c) && isspace(c))
         ; /* Skip leading white space.  */
       else if (state == 0 && c == '#' )
-        state = 1;	/* Start of a comment.  */
+        state = 1;  /* Start of a comment.  */
       else if (state == 1)
         ; /* Skip comments. */
       else if (state == 2 && isascii (c) && isspace(c))
@@ -835,7 +835,7 @@ optfile_parse (FILE *fp, const char *filename, unsigned *lineno,
 
 static int
 find_long_option( ARGPARSE_ARGS *arg,
-		  ARGPARSE_OPTS *opts, const char *keyword )
+      ARGPARSE_OPTS *opts, const char *keyword )
 {
     int i;
     size_t n;
@@ -847,36 +847,36 @@ find_long_option( ARGPARSE_ARGS *arg,
        up our help strings - What we can do is: Build a nice option
        lookup table wehn this function is first invoked */
     if( !*keyword )
-	return -1;
+  return -1;
     for(i=0; opts[i].short_opt; i++ )
-	if( opts[i].long_opt && !strcmp( opts[i].long_opt, keyword) )
-	    return i;
+  if( opts[i].long_opt && !strcmp( opts[i].long_opt, keyword) )
+      return i;
 #if 0
     {
-	ALIAS_DEF a;
-	/* see whether it is an alias */
-	for( a = args->internal.aliases; a; a = a->next ) {
-	    if( !strcmp( a->name, keyword) ) {
-		/* todo: must parse the alias here */
-		args->internal.cur_alias = a;
-		return -3; /* alias available */
-	    }
-	}
+  ALIAS_DEF a;
+  /* see whether it is an alias */
+  for( a = args->internal.aliases; a; a = a->next ) {
+      if( !strcmp( a->name, keyword) ) {
+    /* todo: must parse the alias here */
+    args->internal.cur_alias = a;
+    return -3; /* alias available */
+      }
+  }
     }
 #endif
     /* not found, see whether it is an abbreviation */
     /* aliases may not be abbreviated */
     n = strlen( keyword );
     for(i=0; opts[i].short_opt; i++ ) {
-	if( opts[i].long_opt && !strncmp( opts[i].long_opt, keyword, n ) ) {
-	    int j;
-	    for(j=i+1; opts[j].short_opt; j++ ) {
-		if( opts[j].long_opt
-		    && !strncmp( opts[j].long_opt, keyword, n ) )
-		    return -2;	/* abbreviation is ambiguous */
-	    }
-	    return i;
-	}
+  if( opts[i].long_opt && !strncmp( opts[i].long_opt, keyword, n ) ) {
+      int j;
+      for(j=i+1; opts[j].short_opt; j++ ) {
+    if( opts[j].long_opt
+        && !strncmp( opts[j].long_opt, keyword, n ) )
+        return -2;  /* abbreviation is ambiguous */
+      }
+      return i;
+  }
     }
     return -1;  /* Not found.  */
 }
@@ -937,7 +937,7 @@ arg_parse( ARGPARSE_ARGS *arg, ARGPARSE_OPTS *opts)
           arg->flags |= ARGPARSE_FLAG_STOP_SEEN;
           argc--; argv++; idx++;
           goto next_one;
-	}
+  }
 
       argpos = strchr( s+2, '=' );
       if ( argpos )
@@ -955,23 +955,23 @@ arg_parse( ARGPARSE_ARGS *arg, ARGPARSE_OPTS *opts)
               show_version ();
               exit(0);
             }
-	}
+  }
       else if ( i < 0 && !strcmp( "warranty", s+2))
         {
           writestrings (0, strusage (16), "\n", NULL);
           exit (0);
-	}
+  }
       else if ( i < 0 && !strcmp( "dump-options", s+2) )
         {
           for (i=0; opts[i].short_opt; i++ )
             {
               if (opts[i].long_opt && !(opts[i].flags & ARGPARSE_OPT_IGNORE))
                 writestrings (0, "--", opts[i].long_opt, "\n", NULL);
-	    }
+      }
           writestrings (0, "--dump-options\n--help\n--version\n--warranty\n",
                         NULL);
           exit (0);
-	}
+  }
 
       if ( i == -2 )
         arg->r_opt = ARGPARSE_AMBIGUOUS_OPTION;
@@ -979,7 +979,7 @@ arg_parse( ARGPARSE_ARGS *arg, ARGPARSE_OPTS *opts)
         {
           arg->r_opt = ARGPARSE_INVALID_OPTION;
           arg->r.ret_str = s+2;
-	}
+  }
       else
         arg->r_opt = opts[i].short_opt;
       if ( i < 0 )
@@ -991,17 +991,17 @@ arg_parse( ARGPARSE_ARGS *arg, ARGPARSE_OPTS *opts)
               s2 = argpos+1;
               if ( !*s2 )
                 s2 = NULL;
-	    }
+      }
           else
             s2 = argv[1];
           if ( !s2 && (opts[i].flags & ARGPARSE_OPT_OPTIONAL) )
             {
               arg->r_type = ARGPARSE_TYPE_NONE; /* Argument is optional.  */
-	    }
+      }
           else if ( !s2 )
             {
               arg->r_opt = ARGPARSE_MISSING_ARG;
-	    }
+      }
           else if ( !argpos && *s2 == '-'
                     && (opts[i].flags & ARGPARSE_OPT_OPTIONAL) )
             {
@@ -1009,16 +1009,16 @@ arg_parse( ARGPARSE_ARGS *arg, ARGPARSE_OPTS *opts)
                  option.  We do not check this possible option but
                  assume no argument */
               arg->r_type = ARGPARSE_TYPE_NONE;
-	    }
+      }
           else
             {
               set_opt_arg (arg, opts[i].flags, s2);
               if ( !argpos )
                 {
                   argc--; argv++; idx++; /* Skip one.  */
-		}
-	    }
-	}
+    }
+      }
+  }
       else
         {
           /* Does not take an argument. */
@@ -1026,93 +1026,93 @@ arg_parse( ARGPARSE_ARGS *arg, ARGPARSE_OPTS *opts)
             arg->r_type = ARGPARSE_UNEXPECTED_ARG;
           else
             arg->r_type = 0;
-	}
+  }
       argc--; argv++; idx++; /* Set to next one.  */
     }
     else if ( (*s == '-' && s[1]) || arg->internal.inarg )
       {
         /* Short option.  */
-	int dash_kludge = 0;
+  int dash_kludge = 0;
 
-	i = 0;
-	if ( !arg->internal.inarg )
+  i = 0;
+  if ( !arg->internal.inarg )
           {
-	    arg->internal.inarg++;
-	    if ( (arg->flags & ARGPARSE_FLAG_ONEDASH) )
+      arg->internal.inarg++;
+      if ( (arg->flags & ARGPARSE_FLAG_ONEDASH) )
               {
                 for (i=0; opts[i].short_opt; i++ )
                   if ( opts[i].long_opt && !strcmp (opts[i].long_opt, s+1))
                     {
                       dash_kludge = 1;
                       break;
-		    }
+        }
               }
           }
-	s += arg->internal.inarg;
+  s += arg->internal.inarg;
 
-	if (!dash_kludge )
+  if (!dash_kludge )
           {
-	    for (i=0; opts[i].short_opt; i++ )
+      for (i=0; opts[i].short_opt; i++ )
               if ( opts[i].short_opt == *s )
                 break;
           }
 
-	if ( !opts[i].short_opt && ( *s == 'h' || *s == '?' ) )
+  if ( !opts[i].short_opt && ( *s == 'h' || *s == '?' ) )
           show_help (opts, arg->flags);
 
-	arg->r_opt = opts[i].short_opt;
-	if (!opts[i].short_opt )
+  arg->r_opt = opts[i].short_opt;
+  if (!opts[i].short_opt )
           {
-	    arg->r_opt = (opts[i].flags & ARGPARSE_OPT_COMMAND)?
+      arg->r_opt = (opts[i].flags & ARGPARSE_OPT_COMMAND)?
               ARGPARSE_INVALID_COMMAND:ARGPARSE_INVALID_OPTION;
-	    arg->internal.inarg++; /* Point to the next arg.  */
-	    arg->r.ret_str = s;
+      arg->internal.inarg++; /* Point to the next arg.  */
+      arg->r.ret_str = s;
           }
-	else if ( (opts[i].flags & ARGPARSE_TYPE_MASK) )
+  else if ( (opts[i].flags & ARGPARSE_TYPE_MASK) )
           {
-	    if ( s[1] && !dash_kludge )
+      if ( s[1] && !dash_kludge )
               {
-		s2 = s+1;
-		set_opt_arg (arg, opts[i].flags, s2);
+    s2 = s+1;
+    set_opt_arg (arg, opts[i].flags, s2);
               }
-	    else
+      else
               {
-		s2 = argv[1];
-		if ( !s2 && (opts[i].flags & ARGPARSE_OPT_OPTIONAL) )
+    s2 = argv[1];
+    if ( !s2 && (opts[i].flags & ARGPARSE_OPT_OPTIONAL) )
                   {
-		    arg->r_type = ARGPARSE_TYPE_NONE;
+        arg->r_type = ARGPARSE_TYPE_NONE;
                   }
-		else if ( !s2 )
+    else if ( !s2 )
                   {
-		    arg->r_opt = ARGPARSE_MISSING_ARG;
+        arg->r_opt = ARGPARSE_MISSING_ARG;
                   }
-		else if ( *s2 == '-' && s2[1]
+    else if ( *s2 == '-' && s2[1]
                           && (opts[i].flags & ARGPARSE_OPT_OPTIONAL) )
                   {
-		    /* The argument is optional and the next seems to
-	               be an option.  We do not check this possible
-	               option but assume no argument.  */
-		    arg->r_type = ARGPARSE_TYPE_NONE;
+        /* The argument is optional and the next seems to
+                 be an option.  We do not check this possible
+                 option but assume no argument.  */
+        arg->r_type = ARGPARSE_TYPE_NONE;
                   }
-		else
+    else
                   {
-		    set_opt_arg (arg, opts[i].flags, s2);
-		    argc--; argv++; idx++; /* Skip one.  */
+        set_opt_arg (arg, opts[i].flags, s2);
+        argc--; argv++; idx++; /* Skip one.  */
                   }
               }
-	    s = "x"; /* This is so that !s[1] yields false.  */
+      s = "x"; /* This is so that !s[1] yields false.  */
           }
-	else
+  else
           {
             /* Does not take an argument.  */
-	    arg->r_type = ARGPARSE_TYPE_NONE;
-	    arg->internal.inarg++; /* Point to the next arg.  */
+      arg->r_type = ARGPARSE_TYPE_NONE;
+      arg->internal.inarg++; /* Point to the next arg.  */
           }
-	if ( !s[1] || dash_kludge )
+  if ( !s[1] || dash_kludge )
           {
             /* No more concatenated short options.  */
-	    arg->internal.inarg = 0;
-	    argc--; argv++; idx++;
+      arg->internal.inarg = 0;
+      argc--; argv++; idx++;
           }
       }
   else if ( arg->flags & ARGPARSE_FLAG_MIXED )
@@ -1261,7 +1261,7 @@ show_help (ARGPARSE_OPTS *opts, unsigned int flags)
             if ( !opts[i].description || *opts[i].description != '@' )
               if ( (j=long_opt_strlen(opts+i)) > indent && j < 35 )
                 indent = j;
-	}
+  }
 
       /* Example: " -v, --verbose   Viele Sachen ausgeben" */
       indent += 10;
@@ -1280,7 +1280,7 @@ show_help (ARGPARSE_OPTS *opts, unsigned int flags)
                     {
                       if( s[1] )
                         writestrings (0, "\n", NULL);
-		    }
+        }
                   else
                     {
                       tmp[0] = *s;
@@ -1290,7 +1290,7 @@ show_help (ARGPARSE_OPTS *opts, unsigned int flags)
                 }
               writestrings (0, "\n", NULL);
               continue;
-	    }
+      }
 
           j = 3;
           if ( opts[i].short_opt < 256 )
@@ -1311,9 +1311,9 @@ show_help (ARGPARSE_OPTS *opts, unsigned int flags)
                         }
                       if ( *s )
                         s++;
-		    }
-		}
-	    }
+        }
+    }
+      }
           else
             writestrings (0, "   ", NULL);
           if ( opts[i].long_opt )
@@ -1327,7 +1327,7 @@ show_help (ARGPARSE_OPTS *opts, unsigned int flags)
                     {
                       writestrings (0, " ", NULL);
                       j++;
-		    }
+        }
                   for ( ; *s && *s != '|'; s++, j++ )
                     {
                       tmp[0] = *s;
@@ -1336,10 +1336,10 @@ show_help (ARGPARSE_OPTS *opts, unsigned int flags)
                     }
                   if ( *s )
                     s++;
-		}
+    }
               writestrings (0, "   ", NULL);
               j += 3;
-	    }
+      }
           for (;j < indent; j++ )
             writestrings (0, " ", NULL);
           if ( s )
@@ -1349,7 +1349,7 @@ show_help (ARGPARSE_OPTS *opts, unsigned int flags)
                   writestrings (0, "\n", NULL);
                   for (j=0;j < indent; j++ )
                     writestrings (0, " ", NULL);
-		}
+    }
               for (; *s; s++ )
                 {
                   if ( *s == '\n' )
@@ -1359,19 +1359,19 @@ show_help (ARGPARSE_OPTS *opts, unsigned int flags)
                           writestrings (0, "\n", NULL);
                           for (j=0; j < indent; j++ )
                             writestrings (0, " ", NULL);
-			}
-		    }
+      }
+        }
                   else
                     {
                       tmp[0] = *s;
                       tmp[1] = 0;
                       writestrings (0, tmp, NULL);
                     }
-		}
-	    }
+    }
+      }
           writestrings (0, "\n", NULL);
-	}
-	if ( (flags & ARGPARSE_FLAG_ONEDASH) )
+  }
+  if ( (flags & ARGPARSE_FLAG_ONEDASH) )
           writestrings (0, "\n(A single dash may be used "
                         "instead of the double ones)\n", NULL);
     }
@@ -1580,7 +1580,7 @@ main(int argc, char **argv)
         case 'm': opt.myopt = pargs.r_type? pargs.r.ret_int : 1; break;
         case 500: opt.a_long_one++;  break;
         default : pargs.err = ARGPARSE_PRINT_WARNING; break;
-	}
+  }
     }
   for (i=0; i < argc; i++ )
     printf ("%3d -> (%s)\n", i, argv[i] );
