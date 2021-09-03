@@ -18,14 +18,14 @@ Edit config.mk to match your local setup (dmenu is installed into the /usr/local
 Afterwards enter the following command to build and install dmenu
 (if necessary as root):
 
-	make clean install
+  make clean install
 
 
 Config
 ------
 To use pinentry-dmenu add in `~/.gnupg/gpg-agent.conf`:
 
-	pinentry-program <absolut path to pinentry-dmenu>
+  pinentry-program <absolut path to pinentry-dmenu>
 
 The config is located in `~/.gnupg/pinentry-dmenu.conf`.
 

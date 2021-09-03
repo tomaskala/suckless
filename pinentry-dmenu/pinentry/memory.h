@@ -31,9 +31,9 @@ extern "C" {
 
 
 /* values for flags, hardcoded in secmem.c */
-#define SECMEM_WARN		0
-#define SECMEM_DONT_WARN	1
-#define SECMEM_SUSPEND_WARN	2
+#define SECMEM_WARN    0
+#define SECMEM_DONT_WARN  1
+#define SECMEM_SUSPEND_WARN  2
 
 void secmem_init( size_t npool );
 void secmem_term( void );

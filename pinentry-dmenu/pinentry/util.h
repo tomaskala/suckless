@@ -23,7 +23,7 @@
 #include <sys/types.h>
 
 #ifndef HAVE_BYTE_TYPEDEF
-# undef byte	   
+# undef byte     
 # ifdef __riscos__
     /* Norcroft treats char == unsigned char but char* != unsigned char*  */
     typedef char byte;
@@ -34,7 +34,7 @@
 #endif
 
 #ifndef HAVE_ULONG_TYPEDEF
-# undef ulong	   
+# undef ulong     
   typedef unsigned long ulong;
 # define HAVE_ULONG_TYPEDEF
 #endif
@@ -42,7 +42,7 @@
 
 ssize_t xwrite(int, const void *, size_t); /* write until finished */
 int debugmsg(const char *, ...); /* output a debug message if debugging==on */
-void drop_privs(void);		/* finally drop privileges */
+void drop_privs(void);    /* finally drop privileges */
 
 
 /* To avoid that a compiler optimizes certain memset calls away, these
