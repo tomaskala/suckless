@@ -1,5 +1,5 @@
 /* argparse.h - Argument parser for option handling.
- *  Copyright (C) 1998,1999,2000,2001,2006 Free Software Foundation, Inc.
+ *	Copyright (C) 1998,1999,2000,2001,2006 Free Software Foundation, Inc.
  *
  * This file is part of JNLIB, which is a subsystem of GnuPG.
  *
@@ -35,22 +35,22 @@
 
 typedef struct
 {
-  int  *argc;        /* Pointer to ARGC (value subject to change). */
-  char ***argv;        /* Pointer to ARGV (value subject to change). */
+  int  *argc;	      /* Pointer to ARGC (value subject to change). */
+  char ***argv;	      /* Pointer to ARGV (value subject to change). */
   unsigned int flags; /* Global flags.  May be set prior to calling the
                          parser.  The parser may change the value.  */
   int err;            /* Print error description for last option.
                          Either 0,  ARGPARSE_PRINT_WARNING or
                          ARGPARSE_PRINT_ERROR.  */
 
-  int r_opt;         /* Returns option code. */
-  int r_type;        /* Returns type of option value.  */
+  int r_opt; 	      /* Returns option code. */
+  int r_type;	      /* Returns type of option value.  */
   union {
     int   ret_int;
     long  ret_long;
     unsigned long ret_ulong;
     char *ret_str;
-  } r;          /* Return values */
+  } r;		      /* Return values */
 
   struct {
     int idx;
@@ -60,7 +60,7 @@ typedef struct
     void *aliases;
     const void *cur_alias;
     void *iio_list;
-  } internal;      /* Private - do not change. */
+  } internal;	    /* Private - do not change. */
 } ARGPARSE_ARGS;
 
 typedef struct
@@ -194,7 +194,7 @@ typedef struct
 
 int arg_parse (ARGPARSE_ARGS *arg, ARGPARSE_OPTS *opts);
 int optfile_parse (FILE *fp, const char *filename, unsigned *lineno,
-       ARGPARSE_ARGS *arg, ARGPARSE_OPTS *opts);
+		   ARGPARSE_ARGS *arg, ARGPARSE_OPTS *opts);
 void usage (int level);
 const char *strusage (int level);
 void set_strusage (const char *(*f)( int ));

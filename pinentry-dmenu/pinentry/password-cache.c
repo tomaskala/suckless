@@ -39,10 +39,10 @@ gpg_schema (void)
     static const SecretSchema the_schema = {
         "org.gnupg.Passphrase", SECRET_SCHEMA_NONE,
         {
-    { "stored-by", SECRET_SCHEMA_ATTRIBUTE_STRING },
-    { "keygrip", SECRET_SCHEMA_ATTRIBUTE_STRING },
-    { "NULL", 0 },
-  }
+	  { "stored-by", SECRET_SCHEMA_ATTRIBUTE_STRING },
+	  { "keygrip", SECRET_SCHEMA_ATTRIBUTE_STRING },
+	  { "NULL", 0 },
+	}
     };
     return &the_schema;
 }
@@ -78,13 +78,13 @@ password_cache_save (const char *keygrip, const char *password)
     return;
 
   if (! secret_password_store_sync (gpg_schema (),
-            SECRET_COLLECTION_DEFAULT,
-            label, password, NULL, &error,
-            "stored-by", "GnuPG Pinentry",
-            "keygrip", keygrip, NULL))
+				    SECRET_COLLECTION_DEFAULT,
+				    label, password, NULL, &error,
+				    "stored-by", "GnuPG Pinentry",
+				    "keygrip", keygrip, NULL))
     {
       printf("Failed to cache password for key %s with secret service: %s\n",
-       keygrip, error->message);
+	     keygrip, error->message);
 
       g_error_free (error);
     }
@@ -113,7 +113,7 @@ password_cache_lookup (const char *keygrip)
   if (error != NULL)
     {
       printf("Failed to lookup password for key %s with secret service: %s\n",
-       keygrip, error->message);
+	     keygrip, error->message);
       g_error_free (error);
       return NULL;
     }
@@ -145,11 +145,11 @@ password_cache_clear (const char *keygrip)
 #ifdef HAVE_LIBSECRET
   GError *error = NULL;
   int removed = secret_password_clear_sync (gpg_schema (), NULL, &error,
-              "keygrip", keygrip, NULL);
+					    "keygrip", keygrip, NULL);
   if (error != NULL)
     {
       printf("Failed to clear password for key %s with secret service: %s\n",
-       keygrip, error->message);
+	     keygrip, error->message);
       g_debug("%s", error->message);
       g_error_free (error);
       return -1;

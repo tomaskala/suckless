@@ -123,7 +123,7 @@ lower_privs()
 void 
 raise_privs()
 {
-  assert(real_uid >= 0);  /* lower_privs() must be called before this */
+  assert(real_uid >= 0);	/* lower_privs() must be called before this */
 #ifdef HAVE_SETEUID
   if (real_uid != file_uid && seteuid(file_uid) < 0) {
    perror("Warning: raising privileges failed");

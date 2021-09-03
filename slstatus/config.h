@@ -64,19 +64,19 @@ static const char unknown_str[] = "n/a";
  * wifi_essid          WiFi ESSID                      interface name (wlan0)
  */
 static const struct arg args[] = {
-  /* function      format argument */
-  { cpu_perc,      "cpu %2s%%", NULL },
-  { separator,     "  ",        NULL },
-  { ram_perc,      "ram %2s%%", NULL },
-  { separator,     "  ",        NULL },
-  { temp,          "tem %s°C",  "/sys/class/thermal/thermal_zone8/temp" },
-  { separator,     "  ",        NULL },
-  { wifi_perc,     "net %s%%",  "wlp2s0" },
-  { separator,     "  ",        NULL },
-  { battery_state, "bat %s",    "BAT0" },
-  { battery_perc,  "%s%%",      "BAT0" },
-  { separator,     "  ",        NULL },
-  { run_command,   "vol %s",    "/bin/sh -c \"pamixer --get-volume-human\"" },
-  { separator,     "  ",        NULL },
-  { datetime,      "%s",        "%a %F %H:%M" },
+	/* function      format argument */
+	{ cpu_perc,      "cpu %2s%%", NULL },
+	{ separator,     "  ",        NULL },
+	{ ram_perc,      "ram %2s%%", NULL },
+	{ separator,     "  ",        NULL },
+	{ temp,          "tem %s°C",  "/sys/class/thermal/thermal_zone8/temp" },
+	{ separator,     "  ",        NULL },
+	{ wifi_perc,     "net %s%%",  "wlp2s0" },
+	{ separator,     "  ",        NULL },
+	{ battery_state, "bat %s",    "BAT0" },
+	{ battery_perc,  "%s%%",      "BAT0" },
+	{ separator,     "  ",        NULL },
+	{ run_command,   "vol %s",    "/bin/sh -c \"pamixer --get-volume-human\"" },
+	{ separator,     "  ",        NULL },
+	{ datetime,      "%s",        "%a %F %H:%M" },
 };

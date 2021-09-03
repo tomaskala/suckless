@@ -434,15 +434,15 @@ parse_color (char *arg, pinentry_color_t *color_p, int *bright_p)
     const char *name;
     pinentry_color_t color;
   } colors[] = { { "none", PINENTRY_COLOR_NONE },
-     { "default", PINENTRY_COLOR_DEFAULT },
-     { "black", PINENTRY_COLOR_BLACK },
-     { "red", PINENTRY_COLOR_RED },
-     { "green", PINENTRY_COLOR_GREEN },
-     { "yellow", PINENTRY_COLOR_YELLOW },
-     { "blue", PINENTRY_COLOR_BLUE },
-     { "magenta", PINENTRY_COLOR_MAGENTA },
-     { "cyan", PINENTRY_COLOR_CYAN },
-     { "white", PINENTRY_COLOR_WHITE } };
+		 { "default", PINENTRY_COLOR_DEFAULT },
+		 { "black", PINENTRY_COLOR_BLACK },
+		 { "red", PINENTRY_COLOR_RED },
+		 { "green", PINENTRY_COLOR_GREEN },
+		 { "yellow", PINENTRY_COLOR_YELLOW },
+		 { "blue", PINENTRY_COLOR_BLUE },
+		 { "magenta", PINENTRY_COLOR_MAGENTA },
+		 { "cyan", PINENTRY_COLOR_CYAN },
+		 { "white", PINENTRY_COLOR_WHITE } };
 
   int i;
   char *new_arg;
@@ -461,11 +461,11 @@ parse_color (char *arg, pinentry_color_t *color_p, int *bright_p)
 
       *bright_p = 0;
       for (i = 0; i < sizeof (bname) / sizeof (bname[0]); i++)
-  if (!strncasecmp (arg, bname[i], strlen (bname[i])))
-    {
-      *bright_p = 1;
-      arg += strlen (bname[i]);
-    }
+	if (!strncasecmp (arg, bname[i], strlen (bname[i])))
+	  {
+	    *bright_p = 1;
+	    arg += strlen (bname[i]);
+	  }
     }
 
   for (i = 0; i < sizeof (colors) / sizeof (colors[0]); i++)
@@ -513,48 +513,48 @@ pinentry_parse_opts (int argc, char *argv[])
           pinentry.grab = 0;
           break;
 
-  case 'D':
+	case 'D':
           /* Note, this is currently not used because the GUI engine
              has already been initialized when parsing these options. */
-    pinentry.display = strdup (pargs.r.ret_str);
-    if (!pinentry.display)
-      {
-        exit (EXIT_FAILURE);
-      }
-    break;
-  case 'T':
-    pinentry.ttyname = strdup (pargs.r.ret_str);
-    if (!pinentry.ttyname)
-      {
-        exit (EXIT_FAILURE);
-      }
-    break;
-  case 'N':
-    pinentry.ttytype = strdup (pargs.r.ret_str);
-    if (!pinentry.ttytype)
-      {
-        exit (EXIT_FAILURE);
-      }
-    break;
-  case 'C':
-    pinentry.lc_ctype = strdup (pargs.r.ret_str);
-    if (!pinentry.lc_ctype)
-      {
-        exit (EXIT_FAILURE);
-      }
-    break;
-  case 'M':
-    pinentry.lc_messages = strdup (pargs.r.ret_str);
-    if (!pinentry.lc_messages)
-      {
-        exit (EXIT_FAILURE);
-      }
-    break;
-  case 'W':
-    pinentry.parent_wid = pargs.r.ret_ulong;
-    break;
+	  pinentry.display = strdup (pargs.r.ret_str);
+	  if (!pinentry.display)
+	    {
+	      exit (EXIT_FAILURE);
+	    }
+	  break;
+	case 'T':
+	  pinentry.ttyname = strdup (pargs.r.ret_str);
+	  if (!pinentry.ttyname)
+	    {
+	      exit (EXIT_FAILURE);
+	    }
+	  break;
+	case 'N':
+	  pinentry.ttytype = strdup (pargs.r.ret_str);
+	  if (!pinentry.ttytype)
+	    {
+	      exit (EXIT_FAILURE);
+	    }
+	  break;
+	case 'C':
+	  pinentry.lc_ctype = strdup (pargs.r.ret_str);
+	  if (!pinentry.lc_ctype)
+	    {
+	      exit (EXIT_FAILURE);
+	    }
+	  break;
+	case 'M':
+	  pinentry.lc_messages = strdup (pargs.r.ret_str);
+	  if (!pinentry.lc_messages)
+	    {
+	      exit (EXIT_FAILURE);
+	    }
+	  break;
+	case 'W':
+	  pinentry.parent_wid = pargs.r.ret_ulong;
+	  break;
 
-  case 'c':
+	case 'c':
           {
             char *tmpstr = pargs.r.ret_str;
 
@@ -564,15 +564,15 @@ pinentry_parse_opts (int argc, char *argv[])
             tmpstr = parse_color (tmpstr, &pinentry.color_so,
                                   &pinentry.color_so_bright);
           }
-    break;
+	  break;
 
-  case 'o':
-    pinentry.timeout = pargs.r.ret_int;
-    break;
+	case 'o':
+	  pinentry.timeout = pargs.r.ret_int;
+	  break;
 
         default:
           pargs.err = ARGPARSE_PRINT_WARNING;
-    break;
+	  break;
         }
     }
 }
@@ -593,42 +593,42 @@ option_handler (assuan_context_t ctx, const char *key, const char *value)
   else if (!strcmp (key, "display"))
     {
       if (pinentry.display)
-  free (pinentry.display);
+	free (pinentry.display);
       pinentry.display = strdup (value);
       if (!pinentry.display)
-  return gpg_error_from_syserror ();
+	return gpg_error_from_syserror ();
     }
   else if (!strcmp (key, "ttyname"))
     {
       if (pinentry.ttyname)
-  free (pinentry.ttyname);
+	free (pinentry.ttyname);
       pinentry.ttyname = strdup (value);
       if (!pinentry.ttyname)
-  return gpg_error_from_syserror ();
+	return gpg_error_from_syserror ();
     }
   else if (!strcmp (key, "ttytype"))
     {
       if (pinentry.ttytype)
-  free (pinentry.ttytype);
+	free (pinentry.ttytype);
       pinentry.ttytype = strdup (value);
       if (!pinentry.ttytype)
-  return gpg_error_from_syserror ();
+	return gpg_error_from_syserror ();
     }
   else if (!strcmp (key, "lc-ctype"))
     {
       if (pinentry.lc_ctype)
-  free (pinentry.lc_ctype);
+	free (pinentry.lc_ctype);
       pinentry.lc_ctype = strdup (value);
       if (!pinentry.lc_ctype)
-  return gpg_error_from_syserror ();
+	return gpg_error_from_syserror ();
     }
   else if (!strcmp (key, "lc-messages"))
     {
       if (pinentry.lc_messages)
-  free (pinentry.lc_messages);
+	free (pinentry.lc_messages);
       pinentry.lc_messages = strdup (value);
       if (!pinentry.lc_messages)
-  return gpg_error_from_syserror ();
+	return gpg_error_from_syserror ();
     }
   else if (!strcmp (key, "parent-wid"))
     {
@@ -641,31 +641,31 @@ option_handler (assuan_context_t ctx, const char *key, const char *value)
         free (pinentry.touch_file);
       pinentry.touch_file = strdup (value);
       if (!pinentry.touch_file)
-  return gpg_error_from_syserror ();
+	return gpg_error_from_syserror ();
     }
   else if (!strcmp (key, "default-ok"))
     {
       pinentry.default_ok = strdup (value);
       if (!pinentry.default_ok)
-  return gpg_error_from_syserror ();
+	return gpg_error_from_syserror ();
     }
   else if (!strcmp (key, "default-cancel"))
     {
       pinentry.default_cancel = strdup (value);
       if (!pinentry.default_cancel)
-  return gpg_error_from_syserror ();
+	return gpg_error_from_syserror ();
     }
   else if (!strcmp (key, "default-prompt"))
     {
       pinentry.default_prompt = strdup (value);
       if (!pinentry.default_prompt)
-  return gpg_error_from_syserror ();
+	return gpg_error_from_syserror ();
     }
   else if (!strcmp (key, "default-pwmngr"))
     {
       pinentry.default_pwmngr = strdup (value);
       if (!pinentry.default_pwmngr)
-  return gpg_error_from_syserror ();
+	return gpg_error_from_syserror ();
     }
   else if (!strcmp (key, "allow-external-password-cache") && !*value)
     {
@@ -963,7 +963,7 @@ cmd_getpin (assuan_context_t ctx, char *line)
 
   /* Try reading from the password cache.  */
   if (/* If repeat passphrase is set, then we don't want to read from
-   the cache.  */
+	 the cache.  */
       ! pinentry.repeat_passphrase
       /* Are we allowed to read from the cache?  */
       && pinentry.allow_external_password_cache
@@ -971,7 +971,7 @@ cmd_getpin (assuan_context_t ctx, char *line)
       /* Only read from the cache if we haven't already tried it.  */
       && ! pinentry.tried_password_cache
       /* If the last read resulted in an error, then don't read from
-   the cache.  */
+	 the cache.  */
       && ! pinentry.error)
     {
       char *password;
@@ -980,29 +980,29 @@ cmd_getpin (assuan_context_t ctx, char *line)
 
       password = password_cache_lookup (pinentry.keyinfo);
       if (password)
-  /* There is a cached password.  Try it.  */
-  {
-    int len = strlen(password) + 1;
-    if (len > pinentry.pin_len)
-      len = pinentry.pin_len;
+	/* There is a cached password.  Try it.  */
+	{
+	  int len = strlen(password) + 1;
+	  if (len > pinentry.pin_len)
+	    len = pinentry.pin_len;
 
-    memcpy (pinentry.pin, password, len);
-    pinentry.pin[len] = '\0';
+	  memcpy (pinentry.pin, password, len);
+	  pinentry.pin[len] = '\0';
 
-    secmem_free (password);
+	  secmem_free (password);
 
-    pinentry.pin_from_cache = 1;
+	  pinentry.pin_from_cache = 1;
 
-    assuan_write_status (ctx, "PASSWORD_FROM_CACHE", "");
+	  assuan_write_status (ctx, "PASSWORD_FROM_CACHE", "");
 
-    /* Result is the length of the password not including the
-       NUL terminator.  */
-    result = len - 1;
+	  /* Result is the length of the password not including the
+	     NUL terminator.  */
+	  result = len - 1;
 
-    just_read_password_from_cache = 1;
+	  just_read_password_from_cache = 1;
 
-    goto out;
-  }
+	  goto out;
+	}
     }
 
   /* The password was not cached (or we are not allowed to / cannot
@@ -1046,8 +1046,8 @@ cmd_getpin (assuan_context_t ctx, char *line)
       if (pinentry.specific_err)
         return pinentry.specific_err;
       return (pinentry.locale_err
-        ? gpg_error (GPG_ERR_LOCALE_PROBLEM)
-        : gpg_error (GPG_ERR_CANCELED));
+	      ? gpg_error (GPG_ERR_LOCALE_PROBLEM)
+	      : gpg_error (GPG_ERR_CANCELED));
     }
 
  out:
@@ -1057,16 +1057,16 @@ cmd_getpin (assuan_context_t ctx, char *line)
         assuan_write_status (ctx, "PIN_REPEATED", "");
       result = assuan_send_data (ctx, pinentry.pin, strlen(pinentry.pin));
       if (!result)
-  result = assuan_send_data (ctx, NULL, 0);
+	result = assuan_send_data (ctx, NULL, 0);
 
       if (/* GPG Agent says it's okay.  */
-    pinentry.allow_external_password_cache && pinentry.keyinfo
-    /* We didn't just read it from the cache.  */
-    && ! just_read_password_from_cache
-    /* And the user said it's okay.  */
-    && pinentry.may_cache_password)
-  /* Cache the password.  */
-  password_cache_save (pinentry.keyinfo, pinentry.pin);
+	  pinentry.allow_external_password_cache && pinentry.keyinfo
+	  /* We didn't just read it from the cache.  */
+	  && ! just_read_password_from_cache
+	  /* And the user said it's okay.  */
+	  && pinentry.may_cache_password)
+	/* Cache the password.  */
+	password_cache_save (pinentry.keyinfo, pinentry.pin);
     }
 
   pinentry_setbuffer_clear (&pinentry);
@@ -1245,7 +1245,7 @@ pinentry_loop2 (int infd, int outfd)
   if (rc)
     {
       fprintf (stderr, "server context creation failed: %s\n",
-         gpg_strerror (rc));
+	       gpg_strerror (rc));
       return -1;
     }
 
