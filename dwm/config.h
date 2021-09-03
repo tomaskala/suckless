@@ -34,6 +34,7 @@ static const Rule rules[] = {
   { "qutebrowser",       NULL,     NULL,    1 << 0, 0,          -1 },
   { "discord",           NULL,     NULL,    1 << 1, 0,          -1 },
   { "TelegramDesktop",   NULL,     NULL,    1 << 1, 0,          -1 },
+  { "st-256color",       NULL,     "cmus",  1 << 7, 0,          -1 },
   { "calc",              NULL,     NULL,    0,      1,          -1 },
 };
 
@@ -104,7 +105,6 @@ static Key keys[] = {
   { MODKEY,           XK_c,                     spawn,          SHCMD("st -c calc -e bc -l -q") },
   { MODKEY,           XK_n,                     spawn,          SHCMD("st -e nvim -c VimwikiIndex") },
   { MODKEY,           XK_e,                     spawn,          SHCMD("st -e neomutt") },
-  { MODKEY,           XK_g,                     spawn,          SHCMD("st -e cmus") },
   { MODKEY,           XK_s,                     spawn,          SHCMD("rssfeed") },
   { MODKEY|ShiftMask, XK_r,                     spawn,          SHCMD("refreshresolution") },
   { MODKEY|ShiftMask, XK_p,                     spawn,          SHCMD("passmenu") },
