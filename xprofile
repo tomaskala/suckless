@@ -4,7 +4,7 @@
 refreshresolution &
 
 # Set the input volume.
-amixer set Capture 40% &
+pactl set-source-volume @DEFAULT_SOURCE@ 40% &
 
 # Enable transparency and fix screen tearing.
 (sleep 0.5 && xcompmgr) &
