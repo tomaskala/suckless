@@ -1,9 +1,7 @@
 #!/bin/sh
 set -eu
 
-
 GLOBIGNORE=".:..:.git:.gitignore"
-
 
 die() {
   printf '%s\n' "$1" >&2
@@ -20,7 +18,6 @@ install_dotfile() {
   chmod go-rwx "${dotfile}"
   ln -fs "$(pwd)/${dotfile}" "${dest}"
 }
-
 
 if ! command -v make > /dev/null; then
   die "Make is not installed."
