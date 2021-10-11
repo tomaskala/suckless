@@ -7,6 +7,15 @@ My X-based environment setup.
 
 * Run the `setup.sh` installation script after installing the dependencies
   listed below.
+
+
+## Environment
+
+```
+$ sudo pacman -S xorg-server xorg-xinit xorg-xprop xorg-util-macros xcompmgr
+```
+* [backlight_control](https://aur.archlinux.org/packages/backlight_control/)
+* [libxft-bgra](https://aur.archlinux.org/packages/libxft-bgra/)
 * Put the following inside `/etc/X11/xorg.conf.d/90-touchpad.conf` to configure
   the touchpad.
   ```
@@ -18,16 +27,6 @@ My X-based environment setup.
       Option "NaturalScrolling" "on"
   EndSection
   ```
-
-
-## X
-
-```
-$ sudo pacman -S xorg-server xorg-xinit xorg-xprop xorg-util-macros xcompmgr
-  
-```
-* [backlight_control](https://aur.archlinux.org/packages/backlight_control/)
-* [libxft-bgra](https://aur.archlinux.org/packages/libxft-bgra/)
 
 
 ## Pulseaudio
@@ -71,7 +70,6 @@ Add the following configuration to the following files.
   export TERMINAL='st'
   export XINITRC="${HOME}/.config/xinitrc"
 
-  ### Start the X server on the user's tty if not already running.
   if [ "$(tty)" = "/dev/tty1" ] && ! pidof -s Xorg > /dev/null; then
     exec startx "${XINITRC}"
   fi
@@ -82,5 +80,5 @@ Add the following configuration to the following files.
   ```
 * `~/.config/tmux/tmux.conf`
   ```
-  bind -T copy-mode-vi y   send -X copy-pipe-and-cancel "xclip -in -selection clipboard"
+  bind -T copy-mode-vi y send -X copy-pipe-and-cancel "xclip -in -selection clipboard"
   ```
