@@ -29,9 +29,9 @@ $ sudo pacman -S xorg-server xorg-xinit xorg-xprop xorg-util-macros xcompmgr
   ```
 
 
-## Pulseaudio
+## Pipewire
 ```
-$ sudo pacman -S pulseaudio pulseaudio-alsa pamixer
+$ sudo pacman -S pipewire pipewire-pulse pamixer
 ```
 
 
