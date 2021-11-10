@@ -54,13 +54,6 @@ $ sudo pacman -S feh xorg-xrandr arandr libnotify dunst maim xclip
   ```
 
 
-## pinentry-dmenu
-
-```
-$ sudo pacman -S libassuan libconfig gpgme
-```
-
-
 ## Dotfiles
 
 Add the following configuration to the following files.
@@ -74,10 +67,6 @@ Add the following configuration to the following files.
     exec startx "${XINITRC}"
   fi
     ```
-* `~/.gnupg/gpg-agent.conf`
-  ```
-  pinentry-program /usr/local/bin/pinentry-dmenu
-  ```
 * `~/.config/tmux/tmux.conf`
   ```
   bind -T copy-mode-vi y send -X copy-pipe-and-cancel "xclip -in -selection clipboard"

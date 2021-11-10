@@ -28,7 +28,6 @@ sudo make -C ./dmenu clean install
 sudo make -C ./slstatus clean install
 sudo make -C ./st clean install
 sudo make -C ./slock clean install
-sudo make -C ./pinentry-dmenu clean install
 
 for dotfiles_source in .*; do
   find "${dotfiles_source}" -type f | sort | while read -r dotfile; do
