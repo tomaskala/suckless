@@ -3,20 +3,20 @@
 #include <X11/XF86keysym.h>
 
 /* appearance */
-static const unsigned int borderpx  = 0;        /* border pixel of windows */
-static const unsigned int snap      = 32;       /* snap pixel */
-static const int swallowfloating    = 0;        /* 1 means swallow floating windows by default */
-static const int showbar            = 1;        /* 0 means no bar */
-static const int topbar             = 1;        /* 0 means bottom bar */
-static const int focusonwheel       = 0;
-static const char *fonts[]          = { "mono:pixelsize=15:antialias=true:autohint=true" };
-static const char col_norm_bg[]     = "#1d2021";
-static const char col_norm_fg[]     = "#ebdbb2";
-static const char col_norm_bd[]     = "#1d2021";
-static const char col_sel_bg[]      = "#427b58";
-static const char col_sel_fg[]      = "#1d2021";
-static const char col_sel_bd[]      = "#427b58";
-static const char *colors[][3]      = {
+static const unsigned int borderpx = 0;   /* border pixel of windows */
+static const unsigned int snap     = 32;  /* snap pixel */
+static const int swallowfloating   = 0;   /* 1 means swallow floating windows by default */
+static const int showbar           = 1;   /* 0 means no bar */
+static const int topbar            = 1;   /* 0 means bottom bar */
+static const int focusonwheel      = 0;
+static const char *fonts[]         = { "mono:pixelsize=15:antialias=true:autohint=true" };
+static const char col_norm_bg[]    = "#1d2021";
+static const char col_norm_fg[]    = "#ebdbb2";
+static const char col_norm_bd[]    = "#1d2021";
+static const char col_sel_bg[]     = "#427b58";
+static const char col_sel_fg[]     = "#1d2021";
+static const char col_sel_bd[]     = "#427b58";
+static const char *colors[][3]     = {
   /*               fg           bg           border      */
   [SchemeNorm] = { col_norm_fg, col_norm_bg, col_norm_bd },
   [SchemeSel]  = { col_sel_fg,  col_sel_bg,  col_sel_bd  },
@@ -32,23 +32,23 @@ static const Rule rules[] = {
    */
   /* class               instance  title    mask    isfloating  isterminal  noswallow  monitor */
   { "firefox",           NULL,     NULL,    1 << 0, 0,          0,          -1,        -1 },
-  { "qutebrowser",       NULL,     NULL,    1 << 0, 0,          0,          0,         -1 },
-  { "discord",           NULL,     NULL,    1 << 1, 0,          0,          0,         -1 },
-  { "TelegramDesktop",   NULL,     NULL,    1 << 1, 0,          0,          0,         -1 },
-  { "calc",              NULL,     NULL,    0,      1,          0,          0,         -1 },
-  { "st-256color",       NULL,     NULL,    0,      0,          1,          0,         -1 },
+  { "qutebrowser",       NULL,     NULL,    1 << 0, 0,          0,           0,        -1 },
+  { "discord",           NULL,     NULL,    1 << 1, 0,          0,           0,        -1 },
+  { "TelegramDesktop",   NULL,     NULL,    1 << 1, 0,          0,           0,        -1 },
+  { "calc",              NULL,     NULL,    0,      1,          0,           0,        -1 },
+  { "st-256color",       NULL,     NULL,    0,      0,          1,           0,        -1 },
 };
 
 /* layout(s) */
-static const float mfact     = 0.5;  /* factor of master area size [0.05..0.95] */
-static const int nmaster     = 1;    /* number of clients in master area */
-static const int resizehints = 0;    /* 1 means respect size hints in tiled resizals */
-static const int lockfullscreen = 1; /* 1 will force focus on the fullscreen window */
+static const float mfact        = 0.5;  /* factor of master area size [0.05..0.95] */
+static const int nmaster        = 1;    /* number of clients in master area */
+static const int resizehints    = 0;    /* 1 means respect size hints in tiled resizals */
+static const int lockfullscreen = 1;    /* 1 will force focus on the fullscreen window */
 
 static const Layout layouts[] = {
   /* symbol     arrange function */
-  { "[]=",      tile },    /* first entry is default */
-  { "><>",      NULL },    /* no layout function means floating behavior */
+  { "[]=",      tile },  /* first entry is default */
+  { "><>",      NULL },  /* no layout function means floating behavior */
   { "[M]",      monocle },
 };
 
@@ -64,7 +64,7 @@ static const Layout layouts[] = {
 #define SHCMD(cmd) { .v = (const char*[]){ "/bin/sh", "-c", cmd, NULL } }
 
 /* commands */
-static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
+static char dmenumon[2] = "0";  /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[] = { "drun", "-m", dmenumon, NULL };
 static const char *termcmd[]  = { "st", "-e", "tmux", NULL };
 static const char *slockcmd[] = { "slock", NULL };
@@ -137,4 +137,3 @@ static Button buttons[] = {
   { ClkTagBar,            MODKEY,         Button1,        tag,            {0} },
   { ClkTagBar,            MODKEY,         Button3,        toggletag,      {0} },
 };
-
