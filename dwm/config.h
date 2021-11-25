@@ -107,7 +107,7 @@ static Key keys[] = {
   { MODKEY,           XK_c,                     spawn,          SHCMD("st -c calc -e bc -l -q") },
   { MODKEY,           XK_n,                     spawn,          SHCMD("st -e nvim -c VimwikiIndex") },
   { MODKEY,           XK_e,                     spawn,          SHCMD("st -e neomutt") },
-  { MODKEY,           XK_g,                     spawn,          SHCMD("st -e ncmpcpp") },
+  { MODKEY,           XK_g,                     spawn,          SHCMD("st -e player-one") },
   { MODKEY|ShiftMask, XK_r,                     spawn,          SHCMD("refreshresolution") },
   { MODKEY|ShiftMask, XK_p,                     spawn,          SHCMD("passmenu") },
   { MODKEY|ShiftMask, XK_x,                     spawn,          {.v = slockcmd } },
