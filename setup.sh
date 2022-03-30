@@ -1,8 +1,6 @@
 #!/bin/sh
 set -eu
 
-GLOBIGNORE=".:..:.git:.gitignore"
-
 die() {
   printf '%s\n' "$1" >&2
   exit 1
@@ -30,6 +28,12 @@ sudo make -C ./st clean install
 sudo make -C ./slock clean install
 
 for dotfiles_source in .*; do
+  if [ "${dotfiles_source}" = '.' ] \
+    || [ "${dotfiles_source}" = '..' ] \
+    || [ "${dotfiles_source#.git}" != "${dotfiles_source}" ]; then
+    continue
+  fi
+
   find "${dotfiles_source}" -type f | sort | while read -r dotfile; do
     install_dotfile "${dotfile}"
   done
