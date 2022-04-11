@@ -3,7 +3,6 @@ set -euf
 
 programs=(
   firefox
-  qutebrowser
   discord
   telegram-desktop
   lutris

@@ -32,7 +32,6 @@ static const Rule rules[] = {
    */
   /* class               instance  title    mask    isfloating  isterminal  noswallow  monitor */
   { "firefox",           NULL,     NULL,    1 << 0, 0,          0,          -1,        -1 },
-  { "qutebrowser",       NULL,     NULL,    1 << 0, 0,          0,           0,        -1 },
   { "discord",           NULL,     NULL,    1 << 1, 0,          0,           0,        -1 },
   { "TelegramDesktop",   NULL,     NULL,    1 << 1, 0,          0,           0,        -1 },
   { "calc",              NULL,     NULL,    0,      1,          0,           0,        -1 },
