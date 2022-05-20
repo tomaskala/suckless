@@ -12,7 +12,7 @@ My X-based environment setup.
 ## Environment
 
 ```
-$ sudo pacman -S xorg-server xorg-xinit xorg-xprop xorg-util-macros xcompmgr
+# pacman -S xorg-server xorg-xinit xorg-xprop xorg-util-macros xcompmgr
 ```
 * [backlight_control](https://aur.archlinux.org/packages/backlight_control/)
 * [libxft-bgra](https://aur.archlinux.org/packages/libxft-bgra/)
@@ -31,14 +31,14 @@ $ sudo pacman -S xorg-server xorg-xinit xorg-xprop xorg-util-macros xcompmgr
 
 ## Pipewire
 ```
-$ sudo pacman -S pipewire pipewire-pulse pamixer
+# pacman -S pipewire pipewire-pulse pamixer
 ```
 
 
 ## Utilities
 
 ```
-$ sudo pacman -S feh xorg-xrandr arandr libnotify dunst maim xclip
+# pacman -S feh xorg-xrandr arandr libnotify dunst maim xclip
 ```
 
 
