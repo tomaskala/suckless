@@ -104,7 +104,6 @@ static Key keys[] = {
   TAGKEYS(            XK_9,                                     8)
   { MODKEY|ShiftMask, XK_q,                     quit,           {0} },
   { MODKEY,           XK_c,                     spawn,          SHCMD("st -c calc -e bc -l -q") },
-  { MODKEY,           XK_n,                     spawn,          SHCMD("st -e nvim -c VimwikiIndex") },
   { MODKEY,           XK_e,                     spawn,          SHCMD("st -e neomutt") },
   { MODKEY,           XK_g,                     spawn,          SHCMD("st -e player-one") },
   { MODKEY|ShiftMask, XK_r,                     spawn,          SHCMD("refreshresolution") },
