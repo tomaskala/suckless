@@ -52,22 +52,3 @@ My X-based environment setup.
       Option "DontZap"      "True"
   EndSection
   ```
-
-
-## Dotfiles
-
-Add the following configuration to the following files.
-
-* `~/.bash_profile`
-  ```
-  export TERMINAL='st'
-  export XINITRC="${HOME}/.config/xinitrc"
-
-  if [ "$(tty)" = "/dev/tty1" ] && ! pidof -s Xorg > /dev/null; then
-    exec startx "${XINITRC}"
-  fi
-    ```
-* `~/.config/tmux/tmux.conf`
-  ```
-  bind -T copy-mode-vi y send -X copy-pipe-and-cancel "xclip -in -selection clipboard"
-  ```

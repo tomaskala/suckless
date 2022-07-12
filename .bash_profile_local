@@ -1,0 +1,6 @@
+export TERMINAL=st
+export XINITRC="${HOME}/.config/xinitrc"
+
+if [[ "$(tty)" = "/dev/tty1" ]] && ! pidof -s Xorg > /dev/null; then
+  exec startx "${XINITRC}"
+fi
