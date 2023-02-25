@@ -1,9 +1,5 @@
 #!/bin/sh
 
-if [ -f ~/.config/xprofile ]; then
-  . ~/.config/xprofile
-fi
-
-# Launch dwm as a subprocess of the ssh agent,
-# so that when dwm terminates, the agent does too.
-ssh-agent dwm
+# Launch i3 as a subprocess of the ssh agent,
+# so that when i3 terminates, the agent does too.
+ssh-agent i3

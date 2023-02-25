@@ -106,9 +106,6 @@
     # Maximum amount of notifications kept in history.
     history_length = 20
 
-    # Path to dmenu.
-    dmenu = /usr/bin/dmenu -p dunst:
-
     # Browser for opening urls in context menu.
     browser = /usr/bin/firefox -new-tab
 

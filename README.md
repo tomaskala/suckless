@@ -12,20 +12,9 @@ My X-based environment setup.
 ## Environment
 
 ```
-# pacman -S xorg-server xorg-xinit xorg-xprop xorg-util-macros xcompmgr
+# pacman -S xorg-server xorg-xinit xorg-xprop i3-wm i3lock
 ```
 * [backlight_control](https://aur.archlinux.org/packages/backlight_control/)
-* Put the following inside `/etc/X11/xorg.conf.d/90-touchpad.conf` to configure
-  the touchpad.
-  ```
-  Section "InputClass"
-      Identifier "touchpad"
-      MatchIsTouchpad "on"
-      Driver "libinput"
-      Option "Tapping" "on"
-      Option "NaturalScrolling" "on"
-  EndSection
-  ```
 
 
 ## Pipewire
@@ -41,7 +30,7 @@ My X-based environment setup.
 ```
 
 
-## slock
+## i3lock
 
 * Put the following into the `/etc/X11/xorg.conf` file to make sure a locked
   screen cannot be bypassed by switching VTs or killing the X server.

@@ -1,0 +1,3 @@
+#!/bin/sh
+
+sort | fzf +m --color bw --reverse --border

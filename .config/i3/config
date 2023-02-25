@@ -1,0 +1,174 @@
+# Set the modifier key.
+set $mod Mod4
+
+# Set the font.
+font pango:monospace 10
+
+# Set the application launcher. The final command should be passed to i3-msg
+# so that the resulting window can be opened on the original workspace the
+# command was run on.
+set $menu st -c launcher -e bash -c 'compgen -c | i3-launcher | xargs -r i3-msg -t command exec'
+
+# Set the password manager.
+set $passmenu st -c launcher -e i3-passmenu
+
+# Set the wallpaper.
+exec --no-startup-id feh --bg-fill ~/.local/share/wallpaper
+
+# Set the input volume.
+exec --no-startup-id pactl set-source-volume @DEFAULT_SOURCE@ 40%
+
+# Setup notifications.
+exec --no-startup-id dunst
+
+# Do not focus on mouseover.
+focus_follows_mouse no
+
+# Disable window borders.
+default_border none
+default_floating_border none
+
+# Assign windows to workspaces.
+for_window [class="calc"] floating enable
+for_window [class="launcher"] floating enable
+for_window [class="player"] floating enable
+
+# Define the direction keys.
+set $up k
+set $down j
+set $left h
+set $right l
+
+# Define workspace names.
+set $ws1 "1"
+set $ws2 "2"
+set $ws3 "3"
+set $ws4 "4"
+set $ws5 "5"
+set $ws6 "6"
+set $ws7 "7"
+set $ws8 "8"
+set $ws9 "9"
+set $ws10 "10"
+
+# Start a terminal.
+bindsym $mod+Shift+Return exec st -e tmux
+
+# Kill the focused window.
+bindsym $mod+Shift+c kill
+
+# Start the application launcher.
+bindsym $mod+p exec --no-startup-id $menu
+
+# Start the password manager.
+bindsym $mod+Shift+p exec --no-startup-id $passmenu
+
+# Use Mouse+$mod to drag floating windows to their wanted position.
+floating_modifier $mod
+
+# Restart i3 inplace (preserves the layout/session, can be used to upgrade i3).
+bindsym $mod+Shift+r restart
+
+# Exit i3.
+bindsym $mod+Shift+q exec "i3-nagbar -t warning -m 'Exit i3?' -B 'Yes' 'i3-msg exit'"
+
+# Lock i3.
+bindsym $mod+Shift+x exec --no-startup-id i3lock
+
+# Move the focus.
+bindsym $mod+$left focus left
+bindsym $mod+$down focus down
+bindsym $mod+$up focus up
+bindsym $mod+$right focus right
+
+# Move the focused window.
+bindsym $mod+Shift+$left move left
+bindsym $mod+Shift+$down move down
+bindsym $mod+Shift+$up move up
+bindsym $mod+Shift+$right move right
+
+# Switch to a workspace.
+bindsym $mod+1 workspace number $ws1
+bindsym $mod+2 workspace number $ws2
+bindsym $mod+3 workspace number $ws3
+bindsym $mod+4 workspace number $ws4
+bindsym $mod+5 workspace number $ws5
+bindsym $mod+6 workspace number $ws6
+bindsym $mod+7 workspace number $ws7
+bindsym $mod+8 workspace number $ws8
+bindsym $mod+9 workspace number $ws9
+bindsym $mod+0 workspace number $ws10
+
+# Move the focused container to a workspace.
+bindsym $mod+Shift+1 move container to workspace number $ws1
+bindsym $mod+Shift+2 move container to workspace number $ws2
+bindsym $mod+Shift+3 move container to workspace number $ws3
+bindsym $mod+Shift+4 move container to workspace number $ws4
+bindsym $mod+Shift+5 move container to workspace number $ws5
+bindsym $mod+Shift+6 move container to workspace number $ws6
+bindsym $mod+Shift+7 move container to workspace number $ws7
+bindsym $mod+Shift+8 move container to workspace number $ws8
+bindsym $mod+Shift+9 move container to workspace number $ws9
+bindsym $mod+Shift+0 move container to workspace number $ws10
+
+# Move the focused container to an output.
+bindsym $mod+Up move workspace to output up
+bindsym $mod+Right move workspace to output right
+bindsym $mod+Down move workspace to output down
+bindsym $mod+Left move workspace to output left
+
+# Set the next split to be horizontal or vertical.
+bindsym $mod+b split h
+bindsym $mod+v split v
+
+# Toggle fullscreen.
+bindsym $mod+m fullscreen toggle
+
+# Toggle between the floating and tiling modes.
+bindsym $mod+Shift+space floating toggle
+
+# Swap focus between the floating and tiling modes.
+bindsym $mod+space focus mode_toggle
+
+# Function keys.
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5% && killall -SIGUSR1 i3-statusbar
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5% && killall -SIGUSR1 i3-statusbar
+bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && killall -SIGUSR1 i3-statusbar
+bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle
+bindsym XF86MonBrightnessDown exec --no-startup-id backlight_control -10
+bindsym XF86MonBrightnessUp exec --no-startup-id backlight_control +10
+
+# Screenshot.
+bindsym Print exec --no-startup-id maim -f jpg ~/Pictures/"$(date --iso-8601=seconds).jpg"
+bindsym Shift+Print exec --no-startup-id maim -f jpg -s ~/Pictures/"$(date --iso-8601=seconds).jpg"
+
+# Notifications.
+bindsym $mod+n exec --no-startup-id dunstctl close
+bindsym $mod+Shift+n exec --no-startup-id dunstctl close-all
+
+# Launch applications.
+bindsym $mod+c exec st -c calc -e bc -l -q
+bindsym $mod+e exec st -e sh -c 'GPG_TTY="$(tty)" neomutt'
+bindsym $mod+g exec st -c player -e player-one
+
+# Resize mode.
+mode "resize" {
+  bindsym $left resize shrink width 10 px
+  bindsym $down resize grow height 10 px
+  bindsym $up resize shrink height 10 px
+  bindsym $right resize grow width 10 px
+
+  # Return to the default mode.
+  bindsym Escape mode "default"
+}
+bindsym $mod+r mode "resize"
+
+bar {
+  # Disable the system tray.
+  tray_output none
+  position top
+  status_command i3-statusbar
+}
+
+# Set the output.
+# TODO: Configure the output, resolution and refresh rate.

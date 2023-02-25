@@ -21,11 +21,7 @@ if ! command -v make > /dev/null; then
   die "Make is not installed."
 fi
 
-sudo make -C ./dwm clean install
-sudo make -C ./dmenu clean install
-sudo make -C ./slstatus clean install
 sudo make -C ./st clean install
-sudo make -C ./slock clean install
 
 for dotfiles_source in .*; do
   if [ "${dotfiles_source}" = '.' ] \
@@ -38,6 +34,3 @@ for dotfiles_source in .*; do
     install_dotfile "${dotfile}"
   done
 done
-
-ln -fs "$(pwd)/xprofile" ~/.config/xprofile
-ln -fs "$(pwd)/xinitrc" ~/.config/xinitrc
