@@ -15,7 +15,6 @@ My X-based environment setup.
 # pacman -S xorg-server xorg-xinit xorg-xprop xorg-util-macros xcompmgr
 ```
 * [backlight_control](https://aur.archlinux.org/packages/backlight_control/)
-* [libxft-bgra](https://aur.archlinux.org/packages/libxft-bgra/)
 * Put the following inside `/etc/X11/xorg.conf.d/90-touchpad.conf` to configure
   the touchpad.
   ```
