@@ -149,7 +149,6 @@ bindsym $mod+Shift+n exec --no-startup-id dunstctl close-all
 # Launch applications.
 bindsym $mod+c exec st -c calc -e bc -l -q
 bindsym $mod+e exec st -e sh -c 'GPG_TTY="$(tty)" neomutt'
-bindsym $mod+g exec st -c player -e player-one
 
 # Resize mode.
 mode "resize" {
