@@ -73,7 +73,7 @@ bindsym $mod+Shift+r restart
 bindsym $mod+Shift+q exec "i3-nagbar -t warning -m 'Exit i3?' -B 'Yes' 'i3-msg exit'"
 
 # Lock i3.
-bindsym $mod+Shift+x exec --no-startup-id i3lock
+bindsym $mod+Shift+x exec --no-startup-id i3lock -c 000000
 
 # Move the focus.
 bindsym $mod+$left focus left
@@ -163,11 +163,40 @@ mode "resize" {
 }
 bindsym $mod+r mode "resize"
 
+# Set the colorscheme.
+set $foreground #cccccc
+set $background #0c0c0c
+set $inactive   #3a96dd
+set $active     #3a96dd
+set $focused    #61d6d6
+set $urgent     #c50f1f
+
+# Property name          Border       BG           Text         Ind          Cborder
+client.focused           $focused     $focused     $background  $focused     $focused
+client.focused_inactive  $inactive    $inactive    $focused     $active      $inactive
+client.unfocused         $inactive    $background  $focused     $inactive    $inactive
+client.urgent            $urgent      $urgent      $background  $urgent      $urgent
+client.placeholder       $background  $background  $focused     $background  $background
+client.background        $background
+
 bar {
   # Disable the system tray.
   tray_output none
   position top
   status_command i3-statusbar
+
+I colors {
+    background  $background
+    separator   $inactive
+    statusline  $foreground
+
+    # State             Border       BG           Text
+    focused_workspace   $focused     $focused     $background
+    active_workspace    $active      $active      $background
+    inactive_workspace  $background  $background  $inactive
+    urgent_workspace    $urgent      $urgent      $background
+    binding_mode        $active      $active      $background
+  }
 }
 
 # Set the output.

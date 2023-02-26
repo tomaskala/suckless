@@ -14,21 +14,14 @@ dmenu = ~/.local/bin/i3-launcher
 # Browser for opening URLs in context menu.
 browser = /usr/bin/firefox
 
-# Defines color of the frame around the notification window.
-frame_color = "#aaaaaa"
-
-[urgency_low]
-background = "#222222"
-foreground = "#888888"
-timeout = 10
-
-[urgency_normal]
-background = "#285577"
-foreground = "#ffffff"
+# Define settings common to all urgency levels.
+background = "#0c0c0c"
+foreground = "#cccccc"
+frame_color = "#3b78ff"
 timeout = 10
 
 [urgency_critical]
-background = "#900000"
-foreground = "#ffffff"
-frame_color = "#ff0000"
+background = "#e74856"
+foreground = "#0c0c0c"
+frame_color = "#c50f1f"
 timeout = 0
