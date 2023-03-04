@@ -184,7 +184,7 @@ bar {
   position top
   status_command i3-statusbar
 
-I colors {
+  colors {
     background  $background
     separator   $inactive
     statusline  $foreground
