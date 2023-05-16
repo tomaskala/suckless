@@ -163,38 +163,54 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 # Set the colorscheme.
-set $foreground #cccccc
-set $background #0c0c0c
-set $inactive   #3a96dd
-set $active     #3a96dd
-set $focused    #61d6d6
-set $urgent     #c50f1f
+# Statusbar background and inactive elements.
+set $background      #1e2029
+# Text color and active elements.
+set $foreground      #bd93f9
+# Focused and active workspace background.
+set $background-alt  #181a23
+# Active and inactive workspace foreground.
+set $foreground-alt  #373844
+# Clients and workspaces with the urgency hint set.
+set $urgent          #c50f1f
 
-# Property name          Border       BG           Text         Ind          Cborder
-client.focused           $focused     $focused     $background  $focused     $focused
-client.focused_inactive  $inactive    $inactive    $focused     $active      $inactive
-client.unfocused         $inactive    $background  $focused     $inactive    $inactive
-client.urgent            $urgent      $urgent      $background  $urgent      $urgent
-client.placeholder       $background  $background  $focused     $background  $background
+# Property name          Border           Background       Text         Indicator        Child border
+# Currently focused.
+client.focused           $foreground      $background-alt  $foreground  $background-alt  $background
+# Is focused within its container, but itself does not have focus.
+client.focused_inactive  $foreground-alt  $background      $foreground  $background-alt  $background
+# Not focused within its container.
+client.unfocused         $background-alt  $background      $foreground  $background-alt  $background
+# Has the urgency hint.
+client.urgent            $urgent          $background      $foreground  $background-alt  $background
+# Visible only if the client does not cover the entire window area.
 client.background        $background
 
 bar {
   # Disable the system tray.
   tray_output none
   position top
+  padding 4px 2px
+  workspace_min_width 32px
   status_command i3-statusbar
 
   colors {
+    # Statusbar background.
     background  $background
-    separator   $inactive
+    # Statusline text.
     statusline  $foreground
+    # Statusbar separators.
+    separator   $background
 
-    # State             Border       BG           Text
-    focused_workspace   $focused     $focused     $background
-    active_workspace    $active      $active      $background
-    inactive_workspace  $background  $background  $inactive
-    urgent_workspace    $urgent      $urgent      $background
-    binding_mode        $active      $active      $background
+    # State             Border           BG               Text
+    # Currently focused.
+    focused_workspace   $background-alt  $background-alt  $foreground
+    # Active on a different monitor but unfocused.
+    active_workspace    $background-alt  $background-alt  $foreground-alt
+    # Neither focused nor active (most workspaces).
+    inactive_workspace  $background      $background      $foreground-alt
+    # Contains a window with the urgency hint set.
+    urgent_workspace    $background      $background      $urgent
   }
 }
 
