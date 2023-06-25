@@ -12,7 +12,7 @@ My X-based environment setup.
 ## Environment
 
 ```
-# pacman -S xorg-server xorg-xinit xorg-xprop i3-wm i3lock
+# pacman -S xorg-server xorg-xinit xorg-xprop i3-wm i3status i3lock
 ```
 * [backlight_control](https://aur.archlinux.org/packages/backlight_control/)
 
