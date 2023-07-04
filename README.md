@@ -7,6 +7,17 @@ My X-based environment setup.
 
 * Run the `setup.sh` installation script after installing the dependencies
   listed below.
+* Put the following inside `/etc/X11/xorg.conf.d/90-touchpad.conf` to configure
+  the touchpad.
+  ```
+  Section "InputClass"
+      Identifier "touchpad"
+      MatchIsTouchpad "on"
+      Driver "libinput"
+      Option "Tapping" "on"
+      Option "NaturalScrolling" "on"
+  EndSection
+  ```
 
 
 ## Environment
