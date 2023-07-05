@@ -44,10 +44,12 @@ My X-based environment setup.
 ## i3lock
 
 * Put the following into the `/etc/X11/xorg.conf` file to make sure a locked
-  screen cannot be bypassed by switching VTs or killing the X server.
+  screen cannot be bypassed by switching VTs or killing the X server, and to
+  disable the annoying system beeps.
   ```
   Section "ServerFlags"
       Option "DontVTSwitch" "True"
       Option "DontZap"      "True"
+      Option "NoBeep"       "True"
   EndSection
   ```
