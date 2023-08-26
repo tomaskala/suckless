@@ -11,34 +11,34 @@ order += "battery all"
 order += "time"
 
 wireless _first_ {
-  format_up = " %quality at %essid %ip"
-  format_down = " down"
+  format_up = "󰖩 %quality at %essid %ip"
+  format_down = "󰖪 down"
   format_quality = "%02d%s"
 }
 
 ipv6 {
-  format_up = " %ip"
-  format_down = " no IPv6"
+  format_up = "󰒋 %ip"
+  format_down = "󰒏 no IPv6"
 }
 
 volume master {
   device = "pulse"
-  format = " %volume"
-  format_muted = " %volume"
+  format = "󰕾 %volume"
+  format_muted = "󰖁 %volume"
 }
 
 battery all {
   format = "%status %percentage %remaining"
-  format_down = ""
-  status_chr = ""
-  status_bat = ""
-  status_unk = "?"
-  status_full = ""
+  format_down = "󰚥"
+  status_chr = "󱟦"
+  status_bat = "󱟤"
+  status_unk = "󰂑"
+  status_full = "󰁹"
   path = "/sys/class/power_supply/BAT%d/uevent"
   low_threshold = 20
   threshold_type = "percentage"
 }
 
 time {
-  format = " %a %Y-%m-%d  %H:%M"
+  format = "󰃭 %a %Y-%m-%d 󱑂 %H:%M"
 }
