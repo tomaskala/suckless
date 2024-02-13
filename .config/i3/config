@@ -9,9 +9,6 @@ font pango:monospace 10
 # command was run on.
 set $menu st -c launcher -e bash -c 'compgen -c | i3-launcher | xargs -r i3-msg -t command exec'
 
-# Set the password manager.
-set $passmenu st -c launcher -e i3-passmenu
-
 # Set the wallpaper.
 exec --no-startup-id feh --bg-fill ~/.local/share/wallpaper
 
@@ -59,9 +56,6 @@ bindsym $mod+Shift+c kill
 
 # Start the application launcher.
 bindsym $mod+p exec --no-startup-id $menu
-
-# Start the password manager.
-bindsym $mod+Shift+p exec --no-startup-id $passmenu
 
 # Use Mouse+$mod to drag floating windows to their wanted position.
 floating_modifier $mod
