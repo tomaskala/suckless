@@ -37,7 +37,7 @@ My X-based environment setup.
 ## Utilities
 
 ```
-# pacman -S feh xorg-xrandr arandr libnotify dunst maim xclip
+# pacman -S feh xorg-xrandr arandr libnotify dunst maim xclip zathura zathura-djvu zathura-ps zathura-pdf-mupdf
 ```
 
 
