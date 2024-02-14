@@ -13,7 +13,7 @@ set $menu st -c launcher -e bash -c 'compgen -c | i3-launcher | xargs -r i3-msg 
 exec --no-startup-id feh --bg-fill ~/.local/share/wallpaper
 
 # Set the input volume.
-exec --no-startup-id pactl set-source-volume @DEFAULT_SOURCE@ 40%
+exec --no-startup-id pactl set-source-volume @DEFAULT_SOURCE@ 60%
 
 # Setup notifications.
 exec --no-startup-id dunst
