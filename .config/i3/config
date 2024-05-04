@@ -1,16 +1,4 @@
-# Set the modifier key.
-set $mod Mod4
-
-# Set the font.
-font pango:monospace 10
-
-# Set the application launcher. The final command should be passed to i3-msg
-# so that the resulting window can be opened on the original workspace the
-# command was run on.
-set $menu st -c launcher -e bash -c 'compgen -c | i3-launcher | xargs -r i3-msg -t command exec'
-
-# Set the wallpaper.
-exec --no-startup-id feh --bg-fill ~/.local/share/wallpaper
+# {{{ Autostart
 
 # Microphone volume.
 exec --no-startup-id wpctl set-volume @DEFAULT_AUDIO_SOURCE@ 60%
@@ -18,38 +6,47 @@ exec --no-startup-id wpctl set-volume @DEFAULT_AUDIO_SOURCE@ 60%
 # Speaker volume
 exec --no-startup-id wpctl set-volume @DEFAULT_AUDIO_SINK@ 40%
 
-# Setup notifications.
+exec --no-startup-id feh --bg-fill ~/.local/share/wallpaper
 exec --no-startup-id dunst
 
-# Do not focus on mouseover.
+# }}}
+# {{{ General configuration
+
+font pango:monospace 10
+
+# Set the application launcher. The final command should be passed to i3-msg
+# so that the resulting window can be opened on the original workspace the
+# command was run on.
+set $menu st -c launcher -e bash -c 'compgen -c | i3-launcher | xargs -r i3-msg -t command exec'
+
 focus_follows_mouse no
 
-# Disable window borders.
 default_border none
 default_floating_border none
 
-# Assign windows to workspaces.
 for_window [class="calc"] floating enable
 for_window [class="launcher"] floating enable
 for_window [class="player"] floating enable
 
-# Define the direction keys.
-set $up k
-set $down j
-set $left h
+set $mod   Mod4
+set $up    k
+set $down  j
+set $left  h
 set $right l
 
-# Define workspace names.
-set $ws1 "1"
-set $ws2 "2"
-set $ws3 "3"
-set $ws4 "4"
-set $ws5 "5"
-set $ws6 "6"
-set $ws7 "7"
-set $ws8 "8"
-set $ws9 "9"
+set $ws1  "1"
+set $ws2  "2"
+set $ws3  "3"
+set $ws4  "4"
+set $ws5  "5"
+set $ws6  "6"
+set $ws7  "7"
+set $ws8  "8"
+set $ws9  "9"
 set $ws10 "10"
+
+# }}}
+# {{{ Keybindings
 
 # Start a terminal.
 bindsym $mod+Shift+Return exec st -e tmux
@@ -160,6 +157,9 @@ mode "resize" {
 }
 bindsym $mod+r mode "resize"
 
+# }}}
+# {{{ Colorscheme
+
 # Set the colorscheme.
 # Statusbar background and inactive elements.
 set $background      #1e2029
@@ -213,5 +213,9 @@ bar {
   }
 }
 
-# Set the output.
+# }}}
+# {{{ Output configuration
+
 exec_always --no-startup-id xrandr --output DisplayPort-0 --off --output DisplayPort-1 --primary --mode 2560x1440 --rate 165 --pos 0x0 --rotate normal --output DisplayPort-2 --off --output HDMI-A-0 --off
+
+# }}}
