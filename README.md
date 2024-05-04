@@ -30,7 +30,7 @@ My X-based environment setup.
 
 ## Pipewire
 ```
-# pacman -S pipewire pipewire-pulse pamixer
+# pacman -S pipewire pipewire-pulse wireplumber
 ```
 
 
