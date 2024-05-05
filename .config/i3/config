@@ -46,7 +46,7 @@ set $ws10 "10"
 # {{{ Keybindings
 
 # Start a terminal.
-bindsym $mod+Return exec --no-startup-id st -e tmux
+bindsym $mod+Return exec --no-startup-id st
 
 # Kill the focused window.
 bindsym $mod+Shift+q kill
