@@ -4,13 +4,14 @@ follow = keyboard
 
 # Defines width in pixels of frame around the notification window.
 frame_width = 1
-frame_color = "#1a1c25"
+frame_color = "#3b4261"
+separator_color = "#3b4261"
 
 # Font settings.
 font = Monospace 10
 
 # Launcher path.
-dmenu = ~/.local/bin/i3-launcher
+dmenu = /usr/bin/rofi -dmenu
 
 # Browser for opening URLs in context menu.
 browser = /usr/bin/firefox
@@ -20,12 +21,13 @@ foreground = "#bbc2cf"
 timeout = 10
 
 [urgency_low]
-background = "#1e2029"
+background = "#222436"
+foreground = "#c3e88d"
 
 [urgency_normal]
-background = "#21242b"
+background = "#222436"
+foreground = "#828bb8"
 
 [urgency_critical]
-background = "#cc6666"
-foreground = "#1e2029"
-timeout = 0
+background = "#222436"
+foreground = "#ff757f"

@@ -1,7 +1,10 @@
 general {
   output_format = "i3bar"
-  colors = false
   interval = 5
+
+  color_good = "#c3e88d"
+  color_bad = "#ff757f"
+  color_degraded = "#ffc777"
 }
 
 order += "wireless _first_"
