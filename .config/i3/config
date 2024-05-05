@@ -14,11 +14,6 @@ exec --no-startup-id dunst
 
 font pango:monospace 10
 
-# Set the application launcher. The final command should be passed to i3-msg
-# so that the resulting window can be opened on the original workspace the
-# command was run on.
-set $menu rofi -show drun -show-icons | i3-msg -t command exec
-
 focus_follows_mouse no
 
 default_border none
@@ -51,22 +46,25 @@ set $ws10 "10"
 # {{{ Keybindings
 
 # Start a terminal.
-bindsym $mod+Shift+Return exec st -e tmux
+bindsym $mod+Return exec --no-startup-id st -e tmux
 
 # Kill the focused window.
-bindsym $mod+Shift+c kill
+bindsym $mod+Shift+q kill
 
 # Start the application launcher.
-bindsym $mod+p exec --no-startup-id $menu
+bindsym $mod+space exec --no-startup-id rofi -show drun -show-icons | i3-msg -t command exec
 
-# Use Mouse+$mod to drag floating windows to their wanted position.
+# Start SSH manager.
+bindsym $mod+s exec --no-startup-id rofi -show ssh
+
+# Use Mouse+$mod to drag floating windows.
 floating_modifier $mod
 
-# Restart i3 inplace (preserves the layout/session, can be used to upgrade i3).
+# Restart i3 in place (preserves the layout/session, can be used to upgrade i3).
 bindsym $mod+Shift+r restart
 
 # Exit i3.
-bindsym $mod+Shift+q exec "i3-nagbar -t warning -m 'Exit i3?' -B 'Yes' 'i3-msg exit'"
+bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'Exit i3?' -B 'Yes' 'i3-msg exit'"
 
 # Lock i3.
 bindsym $mod+Shift+x exec --no-startup-id i3lock -c 000000
@@ -114,17 +112,16 @@ bindsym $mod+Down move workspace to output down
 bindsym $mod+Left move workspace to output left
 
 # Set the next split to be horizontal or vertical.
-bindsym $mod+b split h
-bindsym $mod+v split v
+bindsym $mod+BackSpace split toggle
 
 # Toggle fullscreen.
 bindsym $mod+m fullscreen toggle
 
-# Toggle between the floating and tiling modes.
-bindsym $mod+Shift+space floating toggle
-
 # Swap focus between the floating and tiling modes.
-bindsym $mod+space focus mode_toggle
+bindsym $mod+f focus mode_toggle
+
+# Toggle between the floating and tiling modes.
+bindsym $mod+Shift+f floating toggle
 
 # Audio volume.
 bindsym XF86AudioRaiseVolume exec --no-startup-id wpctl set-volume -l 1.2 @DEFAULT_AUDIO_SINK@   5%+    && killall -SIGUSR1 i3status
@@ -144,7 +141,7 @@ bindsym Shift+Print exec --no-startup-id maim -f jpg -s ~/Pictures/"$(date --iso
 bindsym $mod+n exec --no-startup-id dunstctl close
 bindsym $mod+Shift+n exec --no-startup-id dunstctl close-all
 
-# Launch applications.
+# Launch calculator.
 bindsym $mod+c exec st -c calc -e bc -l -q
 
 # Resize mode.
