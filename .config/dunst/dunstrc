@@ -17,7 +17,6 @@ dmenu = /usr/bin/rofi -dmenu
 browser = /usr/bin/firefox
 
 # Define settings common to all urgency levels.
-foreground = "#bbc2cf"
 timeout = 10
 
 [urgency_low]
