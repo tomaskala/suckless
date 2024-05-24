@@ -23,7 +23,6 @@ gaps inner 10px
 smart_gaps inverse_outer
 
 for_window [class="calc"] floating enable
-for_window [class="player"] floating enable
 
 set $mod   Mod4
 set $up    k
